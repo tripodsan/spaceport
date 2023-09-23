@@ -10,7 +10,7 @@ void vertex () {
 
 void fragment() {
   ivec2 xy = ivec2(full_uv);
-  if (xy.y % 2 == 0 && xy.x % 2 == 0) {
+  if (xy.y % 2 == 1 && xy.x % 2 == 0) {
     COLOR.rgba = col1;
    } else {
     COLOR.rgba = col2;

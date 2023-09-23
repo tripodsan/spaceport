@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/tiles.png" type="Texture" id=1]
+[ext_resource path="res://scripts/luggage.gd" type="Script" id=2]
+[ext_resource path="res://scripts/luggage_type.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.5, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15.5, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 7.5, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 4.5, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3, 7.5 )
+
+[node name="luggage" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="0" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 2, 1 )
+
+[node name="small" type="StaticBody2D" parent="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="0/small"]
+position = Vector2( 8, -3 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 186, 15, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="0/small"]
+position = Vector2( 7.5, -3 )
+shape = SubResource( 1 )
+
+[node name="large" type="Sprite" parent="0"]
+visible = false
+position = Vector2( 13, -7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 115, 145, 26, 15 )
+
+[node name="1" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 1, 1 )
+
+[node name="small" type="StaticBody2D" parent="1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="1/small"]
+position = Vector2( 5, -3 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 186, 9, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1/small"]
+position = Vector2( 4.5, -3 )
+shape = SubResource( 2 )
+
+[node name="large" type="Sprite" parent="1"]
+visible = false
+position = Vector2( 8, -6 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 113, 162, 15, 13 )
+
+[node name="2" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 3, 1 )
+
+[node name="small" type="StaticBody2D" parent="2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="2/small"]
+position = Vector2( 16, -1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 189, 31, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2/small"]
+position = Vector2( 15.5, -1.5 )
+shape = SubResource( 3 )
+
+[node name="large" type="Sprite" parent="2"]
+visible = false
+position = Vector2( 18, -1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 120, 204, 35, 3 )
+
+[node name="3" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 2, 2 )
+
+[node name="small" type="StaticBody2D" parent="3"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="3/small"]
+position = Vector2( 8, -5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 197, 15, 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3/small"]
+position = Vector2( 7.5, -5.5 )
+shape = SubResource( 4 )
+
+[node name="large" type="Sprite" parent="3"]
+visible = false
+position = Vector2( 14, -8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 131, 176, 28, 16 )
+
+[node name="4" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 1, 1 )
+
+[node name="small" type="StaticBody2D" parent="4"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="4/small"]
+position = Vector2( 5, -4 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 199, 9, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="4/small"]
+position = Vector2( 4.5, -4.5 )
+shape = SubResource( 5 )
+
+[node name="large" type="Sprite" parent="4"]
+visible = false
+position = Vector2( 8, -8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 144, 144, 16, 16 )
+
+[node name="5" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 3 )
+size = Vector2( 1, 2 )
+
+[node name="small" type="StaticBody2D" parent="5"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="5/small"]
+position = Vector2( 3, -7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 193, 6, 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="5/small"]
+position = Vector2( 3, -7.5 )
+shape = SubResource( 6 )
+
+[node name="large" type="Sprite" parent="5"]
+visible = false
+position = Vector2( 8, -13 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 161, 147, 15, 26 )

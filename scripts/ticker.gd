@@ -8,13 +8,13 @@ func set_pos(v):
   pos = v
   rect_position.x = floor(pos / 2) * 2
 
-func _ready() -> void:
-  reset()
-
-func reset():
-  self.pos = get_parent().get_rect().size.x;
-
-func _process(delta):
-  self.pos -= scroll_speed * delta
-  if pos < -rect_size.x:
-    reset()
+#func _ready() -> void:
+#  reset()
+#
+#func reset():
+#  self.pos = get_parent().get_rect().size.x;
+#
+#func _process(delta):
+#  self.pos -= scroll_speed * delta
+#  if pos < -rect_size.x:
+#    reset()
