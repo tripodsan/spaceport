@@ -12,21 +12,29 @@ var hover_item:Luggage
 
 var direction = 0
 
+signal on_item_pick(item)
+
+signal on_item_drop(item)
+
 func pick_up():
   if hover_item and not held_item:
     held_item = hover_item
     held_item.get_parent().remove_child(held_item);
     $hands.add_child(held_item)
-    held_item.position = Vector2(7, 6)
+    held_item.position = Vector2(1, 6)
     set_direction(direction)
-    print_debug("pick up: ", held_item)
+#    print_debug("pick up: ", held_item)
+    emit_signal('on_item_pick', held_item)
+
   elif held_item:
     held_item.queue_free()
+    emit_signal('on_item_drop', held_item)
     held_item = null
 
 func set_direction(d):
   direction = d
   $hands.scale = Vector2(direction, 1)
+  $hands.position.x = direction * 6;
   sprite.play('right' if d == 1 else 'left')
 
 func _ready() -> void:
@@ -50,7 +58,7 @@ func _physics_process(delta):
 #    sprite.play('up')
   if velocity != Vector2.ZERO:
     idle_time = 0
-    move_and_collide(velocity * delta);
+    var r = move_and_collide(velocity * delta);
   else:
     idle_time += delta
     if (idle_time > 2):
@@ -58,15 +66,19 @@ func _physics_process(delta):
   if Input.is_action_just_pressed("pick_item"):
     pick_up()
 
-
-func _on_hands_body_entered(body: Node) -> void:
-  var p = body.get_parent().get_parent()
+func _on_hands_area_entered(area: Area2D) -> void:
+  var p = area.get_parent().get_parent()
+#  prints('enter', p)
   if p is Luggage:
+    if hover_item:
+      hover_item.hover(false)
     hover_item = p
-  else:
-    hover_item = null
+    p.hover(true)
 
-func _on_hands_body_exited(body: Node) -> void:
-  var p = body.get_parent().get_parent()
+
+func _on_hands_area_exited(area: Area2D) -> void:
+  var p = area.get_parent().get_parent()
+#  prints(' exit', p)
   if p == hover_item:
+    hover_item.hover(false)
     hover_item = null

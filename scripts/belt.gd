@@ -3,13 +3,17 @@ extends TileMap
 
 var luggage_scene = preload("res://sprites/luggage.tscn")
 
-var belt_speed = 8
+var belt_speed = 10
+
+var margin = 4
 
 var belt_frame = 0
 
 var next:Luggage;
 
-var first;
+var first:Luggage;
+
+var last:Luggage;
 
 func _ready() -> void:
   prepare_luggage()
@@ -23,30 +27,34 @@ func _physics_process(delta):
 
 func prepare_luggage():
   next = luggage_scene.instance()
+  next.set_random_type()
   add_child(next)
+  next.position = Vector2(-100, -100)
   next.visible = false
 
 func add_luggage():
   if !first:
     return
-  if first.position.x > next.get_width():
+  if first.position.x >= 0:
     remove_child(next)
     $luggage.add_child(next)
     next.visible = true
-    next.position = Vector2(-next.get_width(), 134);
+    next.position = Vector2(-next.size.x - margin, 134);
     first = next
     prepare_luggage()
 
 func move_luggage():
   first = null
-  var firstPos = 200
+  last = null
   for child in $luggage.get_children():
     child.position.x += 1
-    if child.position.x > 160:
-      child.position.x = -child.get_width()
-    if child.position.x < firstPos:
+    if !first || child.position.x < first.position.x:
       first = child
-      firstPos = child.position.x
+    if !last || child.position.x > last.position.x:
+      last = child
+  if last && last.position.x > 160:
+    last.position.x = min(0, first.position.x) - last.size.x - margin
+    first = last
   add_luggage()
 
 func move_belt():

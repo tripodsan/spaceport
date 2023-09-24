@@ -1,11 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://scripts/belt.gd" type="Script" id=2]
-[ext_resource path="res://font-monogram.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/font-monogram.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scripts/ticker.gd" type="Script" id=4]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=5]
 [ext_resource path="res://scripts/player.gd" type="Script" id=6]
+[ext_resource path="res://scripts/world.gd" type="Script" id=7]
+[ext_resource path="res://scripts/preview.gd" type="Script" id=8]
 [ext_resource path="res://sprites/luggage.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
@@ -126,132 +128,6 @@ points = PoolVector2Array( 16, 7.27513, 0, 7.27513, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
-7/name = "tiles.png 7"
-7/texture = ExtResource( 5 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 112, 96, 16, 16 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "tiles.png 8"
-8/texture = ExtResource( 5 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 128, 96, 16, 16 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
-9/name = "tiles.png 9"
-9/texture = ExtResource( 5 )
-9/tex_offset = Vector2( 0, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 144, 96, 16, 16 )
-9/tile_mode = 0
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape_one_way = false
-9/shape_one_way_margin = 0.0
-9/shapes = [  ]
-9/z_index = 0
-10/name = "tiles.png 10"
-10/texture = ExtResource( 5 )
-10/tex_offset = Vector2( 0, 0 )
-10/modulate = Color( 1, 1, 1, 1 )
-10/region = Rect2( 112, 112, 16, 16 )
-10/tile_mode = 0
-10/occluder_offset = Vector2( 0, 0 )
-10/navigation_offset = Vector2( 0, 0 )
-10/shape_offset = Vector2( 0, 0 )
-10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape_one_way = false
-10/shape_one_way_margin = 0.0
-10/shapes = [  ]
-10/z_index = 0
-11/name = "tiles.png 11"
-11/texture = ExtResource( 5 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 128, 112, 16, 16 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/shape_offset = Vector2( 0, 0 )
-11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-11/shape_one_way = false
-11/shape_one_way_margin = 0.0
-11/shapes = [  ]
-11/z_index = 0
-12/name = "tiles.png 12"
-12/texture = ExtResource( 5 )
-12/tex_offset = Vector2( 0, 0 )
-12/modulate = Color( 1, 1, 1, 1 )
-12/region = Rect2( 144, 112, 16, 16 )
-12/tile_mode = 0
-12/occluder_offset = Vector2( 0, 0 )
-12/navigation_offset = Vector2( 0, 0 )
-12/shape_offset = Vector2( 0, 0 )
-12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-12/shape_one_way = false
-12/shape_one_way_margin = 0.0
-12/shapes = [  ]
-12/z_index = 0
-13/name = "tiles.png 13"
-13/texture = ExtResource( 5 )
-13/tex_offset = Vector2( 0, 0 )
-13/modulate = Color( 1, 1, 1, 1 )
-13/region = Rect2( 112, 128, 16, 16 )
-13/tile_mode = 0
-13/occluder_offset = Vector2( 0, 0 )
-13/navigation_offset = Vector2( 0, 0 )
-13/shape_offset = Vector2( 0, 0 )
-13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-13/shape_one_way = false
-13/shape_one_way_margin = 0.0
-13/shapes = [  ]
-13/z_index = 0
-14/name = "tiles.png 14"
-14/texture = ExtResource( 5 )
-14/tex_offset = Vector2( 0, 0 )
-14/modulate = Color( 1, 1, 1, 1 )
-14/region = Rect2( 128, 128, 16, 16 )
-14/tile_mode = 0
-14/occluder_offset = Vector2( 0, 0 )
-14/navigation_offset = Vector2( 0, 0 )
-14/shape_offset = Vector2( 0, 0 )
-14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-14/shape_one_way = false
-14/shape_one_way_margin = 0.0
-14/shapes = [  ]
-14/z_index = 0
-15/name = "tiles.png 15"
-15/texture = ExtResource( 5 )
-15/tex_offset = Vector2( 0, 0 )
-15/modulate = Color( 1, 1, 1, 1 )
-15/region = Rect2( 144, 128, 16, 16 )
-15/tile_mode = 0
-15/occluder_offset = Vector2( 0, 0 )
-15/navigation_offset = Vector2( 0, 0 )
-15/shape_offset = Vector2( 0, 0 )
-15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-15/shape_one_way = false
-15/shape_one_way_margin = 0.0
-15/shapes = [  ]
-15/z_index = 0
 16/name = "tiles.png 16"
 16/texture = ExtResource( 5 )
 16/tex_offset = Vector2( 0, 0 )
@@ -728,10 +604,20 @@ points = PoolVector2Array( 16, 7.27513, 0, 7.27513, 0, 0, 16, 0 )
 48/shape_one_way_margin = 0.0
 48/shapes = [  ]
 48/z_index = 0
-
-[sub_resource type="DynamicFont" id=6]
-extra_spacing_top = -3
-font_data = ExtResource( 3 )
+49/name = "tiles.png 49"
+49/texture = ExtResource( 5 )
+49/tex_offset = Vector2( 0, 0 )
+49/modulate = Color( 1, 1, 1, 1 )
+49/region = Rect2( 112, 96, 48, 48 )
+49/tile_mode = 0
+49/occluder_offset = Vector2( 0, 0 )
+49/navigation_offset = Vector2( 0, 0 )
+49/shape_offset = Vector2( 0, 0 )
+49/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+49/shape_one_way = false
+49/shape_one_way_margin = 0.0
+49/shapes = [  ]
+49/z_index = 0
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
@@ -785,33 +671,32 @@ animations = [ {
 extents = Vector2( 6.75, 2.5 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 10, 12.5 )
+extents = Vector2( 2, 7.5 )
 
-[node name="Node2D" type="Node2D"]
+[node name="game" type="Node2D"]
 
 [node name="world" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
-[node name="map" type="Node2D" parent="world"]
-
-[node name="background" type="TileMap" parent="world/map"]
+[node name="background" type="TileMap" parent="world"]
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65523, 17, 0, 65524, 17, 0, 65525, 17, 0, 65526, 17, 0, 65527, 17, 0, 65528, 17, 0, 65529, 17, 0, 65530, 17, 0, 65531, 17, 0, 65532, 17, 0, 65533, 17, 0, 65534, 17, 0, 65535, 17, 0, 0, 17, 0, 1, 17, 0, 2, 17, 0, 3, 17, 0, 4, 17, 0, 5, 17, 0, 6, 17, 0, 7, 17, 0, 8, 17, 0, 9, 17, 0, 10, 17, 0, 11, 17, 0, 12, 17, 0, 13, 17, 0, 14, 17, 0, 15, 17, 0, 16, 17, 0, 17, 17, 0, 18, 17, 0, 19, 17, 0, 20, 17, 0, 21, 17, 0, 22, 17, 0, 23, 17, 0, 24, 17, 0, 25, 17, 0, 131059, 21, 2, 131060, 21, 4, 131061, 21, 3, 131062, 21, 3, 131063, 21, 4, 131064, 21, 1, 131065, 21, 4, 131066, 21, 3, 131067, 21, 3, 131068, 21, 3, 131069, 21, 0, 131070, 21, 2, 131071, 21, 5, 65536, 21, 2, 65537, 21, 5, 65538, 21, 5, 65539, 21, 4, 65540, 21, 5, 65541, 21, 1, 65542, 21, 0, 65543, 21, 5, 65544, 21, 5, 65545, 21, 4, 65546, 21, 4, 65547, 21, 2, 65548, 21, 1, 65549, 21, 3, 65550, 21, 2, 65551, 21, 5, 65552, 21, 4, 65553, 21, 4, 65554, 21, 4, 65555, 21, 5, 65556, 21, 3, 65557, 21, 0, 65558, 21, 2, 65559, 21, 0, 65560, 21, 1, 65561, 21, 0, 196595, 21, 2, 196596, 21, 4, 196597, 21, 5, 196598, 21, 3, 196599, 21, 0, 196600, 21, 3, 196601, 21, 4, 196602, 21, 4, 196603, 21, 5, 196604, 21, 3, 196605, 21, 2, 196606, 21, 3, 196607, 21, 3, 131072, 21, 4, 131073, 21, 2, 131074, 21, 0, 131075, 21, 2, 131076, 21, 2, 131077, 21, 4, 131078, 21, 1, 131079, 21, 0, 131080, 21, 3, 131081, 21, 0, 131082, 21, 3, 131083, 21, 2, 131084, 21, 5, 131085, 21, 5, 131086, 21, 0, 131087, 21, 0, 131088, 21, 3, 131089, 21, 0, 131090, 21, 3, 131091, 21, 3, 131092, 21, 4, 131093, 21, 2, 131094, 21, 0, 131095, 21, 4, 131096, 21, 1, 131097, 21, 4, 262131, 17, 0, 262132, 17, 0, 262133, 17, 0, 262134, 17, 0, 262135, 17, 0, 262136, 17, 0, 262137, 17, 0, 262138, 17, 0, 262139, 17, 0, 262140, 17, 0, 262141, 17, 0, 262142, 17, 0, 262143, 17, 0, 196608, 17, 0, 196609, 17, 0, 196610, 17, 0, 196611, 17, 0, 196612, 17, 0, 196613, 17, 0, 196614, 17, 0, 196615, 17, 0, 196616, 17, 0, 196617, 17, 0, 196618, 17, 0, 196619, 17, 0, 196620, 17, 0, 196621, 17, 0, 196622, 17, 0, 196623, 17, 0, 196624, 17, 0, 196625, 17, 0, 196626, 17, 0, 196627, 17, 0, 196628, 17, 0, 196629, 17, 0, 196630, 17, 0, 196631, 17, 0, 196632, 17, 0, 196633, 17, 0, 327667, 17, 0, 327668, 17, 0, 327669, 17, 0, 327670, 17, 0, 327671, 17, 0, 327672, 17, 0, 327673, 17, 0, 327674, 17, 0, 327675, 17, 0, 327676, 17, 0, 327677, 17, 0, 327678, 17, 0, 327679, 17, 0, 262144, 17, 0, 262145, 17, 0, 262146, 17, 0, 262147, 17, 0, 262148, 17, 0, 262149, 17, 0, 262150, 17, 0, 262151, 17, 0, 262152, 17, 0, 262153, 17, 0, 262154, 17, 0, 262155, 17, 0, 262156, 17, 0, 262157, 17, 0, 262158, 17, 0, 262159, 17, 0, 262160, 17, 0, 262161, 17, 0, 262162, 17, 0, 262163, 17, 0, 262164, 17, 0, 262165, 17, 0, 262166, 17, 0, 262167, 17, 0, 262168, 17, 0, 262169, 17, 0, 393203, 17, 0, 393204, 17, 0, 393205, 17, 0, 393206, 17, 0, 393207, 17, 0, 393208, 17, 0, 393209, 17, 0, 393210, 17, 0, 393211, 17, 0, 393212, 17, 0, 393213, 17, 0, 393214, 17, 0, 393215, 17, 0, 327680, 17, 0, 327681, 17, 0, 327682, 17, 0, 327683, 17, 0, 327684, 17, 0, 327685, 17, 0, 327686, 17, 0, 327687, 17, 0, 327688, 17, 0, 327689, 17, 0, 327690, 17, 0, 327691, 17, 0, 327692, 17, 0, 327693, 17, 0, 327694, 17, 0, 327695, 17, 0, 327696, 17, 0, 327697, 17, 0, 327698, 17, 0, 327699, 17, 0, 327700, 17, 0, 327701, 17, 0, 327702, 17, 0, 327703, 17, 0, 327704, 17, 0, 327705, 17, 0, 458739, 17, 0, 458740, 17, 0, 458741, 17, 0, 458742, 17, 0, 458743, 17, 0, 458744, 17, 0, 458745, 17, 0, 458746, 17, 0, 458747, 17, 0, 458748, 17, 0, 458749, 17, 0, 458750, 17, 0, 458751, 17, 0, 393216, 17, 0, 393217, 17, 0, 393218, 17, 0, 393219, 17, 0, 393220, 17, 0, 393221, 17, 0, 393222, 17, 0, 393223, 17, 0, 393224, 17, 0, 393225, 17, 0, 393226, 17, 0, 393227, 17, 0, 393228, 17, 0, 393229, 17, 0, 393230, 17, 0, 393231, 17, 0, 393232, 17, 0, 393233, 17, 0, 393234, 17, 0, 393235, 17, 0, 393236, 17, 0, 393237, 17, 0, 393238, 17, 0, 393239, 17, 0, 393240, 17, 0, 393241, 17, 0, 524275, 17, 0, 524276, 17, 0, 524277, 17, 0, 524278, 17, 0, 524279, 17, 0, 524280, 17, 0, 524281, 17, 0, 524282, 17, 0, 524283, 17, 0, 524284, 17, 0, 524285, 17, 0, 524286, 17, 0, 524287, 17, 0, 458752, 17, 0, 458753, 17, 0, 458754, 17, 0, 458755, 17, 0, 458756, 17, 0, 458757, 17, 0, 458758, 17, 0, 458759, 17, 0, 458760, 17, 0, 458761, 17, 0, 458762, 17, 0, 458763, 17, 0, 458764, 17, 0, 458765, 17, 0, 458766, 17, 0, 458767, 17, 0, 458768, 17, 0, 458769, 17, 0, 458770, 17, 0, 458771, 17, 0, 458772, 17, 0, 458773, 17, 0, 458774, 17, 0, 458775, 17, 0, 458776, 17, 0, 458777, 17, 0, 589811, 17, 0, 589812, 17, 0, 589813, 17, 0, 589814, 17, 0, 589815, 17, 0, 589816, 17, 0, 589817, 17, 0, 589818, 17, 0, 589819, 17, 0, 589820, 17, 0, 589821, 17, 0, 589822, 17, 0, 589823, 17, 0, 524288, 17, 0, 524289, 17, 0, 524290, 17, 0, 524291, 17, 0, 524292, 17, 0, 524293, 17, 0, 524294, 17, 0, 524295, 17, 0, 524296, 17, 0, 524297, 17, 0, 524298, 17, 0, 524299, 17, 0, 524300, 17, 0, 524301, 17, 0, 524302, 17, 0, 524303, 17, 0, 524304, 17, 0, 524305, 17, 0, 524306, 17, 0, 524307, 17, 0, 524308, 17, 0, 524309, 17, 0, 524310, 17, 0, 524311, 17, 0, 524312, 17, 0, 524313, 17, 0 )
 
-[node name="wall" type="TileMap" parent="world/map"]
+[node name="wall" type="TileMap" parent="world"]
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 20, 0, 1, 38, 0, 3, 39, 0, 4, 20, 0, 5, 19, 0, 6, 19, 0, 7, 19, 0, 8, 19, 0, 9, 20, 0, 65536, 0, 0, 65537, 1, 0, 65538, 2, 0, 65539, 0, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 2, 0, 65544, 37, 0, 65545, 37, 0, 131072, 3, 0, 131073, 4, 0, 131074, 5, 0, 131075, 3, 0, 131076, 4, 0, 131077, 4, 0, 131078, 4, 0, 131079, 5, 0, 131080, 37, 0, 131081, 37, 0, 262143, 37, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 37, 0, 327679, 37, 0, 262145, 47, 0, 262154, 37, 0, 393215, 37, 0, 327690, 37, 0, 458751, 37, 0, 393226, 37, 0, 524287, 37, 0, 458762, 37, 0, 589823, 37, 0, 524298, 37, 0, 655359, 37, 0, 589824, 37, 0, 589825, 37, 0, 589826, 37, 0, 589827, 37, 0, 589828, 37, 0, 589829, 37, 0, 589830, 37, 0, 589831, 37, 0, 589832, 37, 0, 589833, 37, 0, 589834, 37, 0 )
 
-[node name="display" type="TileMap" parent="world/map"]
+[node name="display" type="TileMap" parent="world"]
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 5, 23, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 25, 0, 65541, 26, 0, 65542, 27, 0, 65543, 27, 0, 65544, 27, 0, 65545, 28, 0, 131077, 26, 0, 131078, 27, 0, 131079, 27, 0, 131080, 27, 0, 131081, 28, 0, 196613, 29, 0, 196614, 30, 0, 196615, 30, 0, 196616, 30, 0, 196617, 31, 0 )
 
-[node name="Label" type="Label" parent="world/map"]
+[node name="Label" type="Label" parent="world/display"]
 use_parent_material = true
 margin_left = 85.0
 margin_top = 11.0
@@ -821,22 +706,22 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.819608, 0.788235, 0.631373, 1 )
 custom_constants/line_spacing = 0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = ExtResource( 3 )
 text = "Mars  0400 G
 Europ 0330 A
 Moon  0200 E
 LAX   0100 B"
 script = ExtResource( 4 )
 
-[node name="player" type="KinematicBody2D" parent="world/map"]
+[node name="player" type="KinematicBody2D" parent="world"]
 position = Vector2( 79, 98 )
 script = ExtResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="world/map/player"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="world/player"]
 frames = SubResource( 13 )
 animation = "down"
 
-[node name="Camera2D" type="Camera2D" parent="world/map/player"]
+[node name="Camera2D" type="Camera2D" parent="world/player"]
 limit_top = 0
 limit_bottom = 144
 drag_margin_h_enabled = true
@@ -846,36 +731,54 @@ drag_margin_right = 0.5
 drag_margin_bottom = 1.0
 editor_draw_screen = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/map/player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/player"]
 position = Vector2( 0.75, 11.5 )
 shape = SubResource( 14 )
 
-[node name="hands" type="Area2D" parent="world/map/player"]
+[node name="hands" type="Area2D" parent="world/player"]
+position = Vector2( -6, 4 )
 collision_layer = 2
 collision_mask = 2
+input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/map/player/hands"]
-position = Vector2( -1, 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/player/hands"]
 shape = SubResource( 16 )
 
-[node name="belt" type="TileMap" parent="world/map"]
+[node name="belt" type="TileMap" parent="world"]
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 524288, 48, 0, 524289, 48, 0, 524290, 48, 0, 524291, 48, 0, 524292, 48, 0, 524293, 48, 0, 524294, 48, 0, 524295, 48, 0, 524296, 48, 0, 524297, 48, 0 )
 script = ExtResource( 2 )
 
-[node name="surface" type="Sprite" parent="world/map/belt"]
+[node name="surface" type="Sprite" parent="world/belt"]
 position = Vector2( -16, 128 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 240, 256, 16 )
 
-[node name="luggage" type="Node2D" parent="world/map/belt"]
+[node name="luggage" type="Node2D" parent="world/belt"]
 
-[node name="0" parent="world/map/belt/luggage" instance=ExtResource( 12 )]
-position = Vector2( -1, 134 )
+[node name="0" parent="world/belt/luggage" instance=ExtResource( 12 )]
+position = Vector2( 60, 134 )
+type = 1
 
-[connection signal="body_entered" from="world/map/player/hands" to="world/map/player" method="_on_hands_body_entered"]
-[connection signal="body_exited" from="world/map/player/hands" to="world/map/player" method="_on_hands_body_exited"]
+[node name="preview" type="TileMap" parent="world"]
+tile_set = SubResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393223, 49, 0 )
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="world/preview"]
+margin_left = 120.0
+margin_top = 127.0
+margin_right = 160.0
+margin_bottom = 137.0
+custom_colors/font_color = Color( 0.172549, 0.117647, 0.454902, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "MON"
+
+[connection signal="area_entered" from="world/player/hands" to="world/player" method="_on_hands_area_entered"]
+[connection signal="area_exited" from="world/player/hands" to="world/player" method="_on_hands_area_exited"]
