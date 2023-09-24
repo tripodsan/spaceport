@@ -10,26 +10,37 @@ var held_item:Luggage
 
 var hover_item:Luggage
 
+var hover_cart:Cart
+
 var direction = 0
+
+var pause:bool = false
 
 signal on_item_pick(item)
 
 signal on_item_drop(item)
 
+signal on_open_cart(cart, item)
+
+func take_item(item):
+  held_item = item
+  held_item.get_parent().remove_child(held_item);
+  $hands.add_child(held_item)
+  held_item.position = Vector2(1, 6)
+  set_direction(direction)
+  emit_signal('on_item_pick', held_item)
+
 func pick_up():
   if hover_item and not held_item:
-    held_item = hover_item
-    held_item.get_parent().remove_child(held_item);
-    $hands.add_child(held_item)
-    held_item.position = Vector2(1, 6)
-    set_direction(direction)
-#    print_debug("pick up: ", held_item)
-    emit_signal('on_item_pick', held_item)
+    take_item(hover_item)
 
-  elif held_item:
-    held_item.queue_free()
-    emit_signal('on_item_drop', held_item)
+  if hover_cart:
+    emit_signal('on_open_cart', hover_cart, held_item)
     held_item = null
+#  elif held_item:
+#    held_item.queue_free()
+#    emit_signal('on_item_drop', held_item)
+#    held_item = null
 
 func set_direction(d):
   direction = d
@@ -41,6 +52,8 @@ func _ready() -> void:
   pass
 
 func _physics_process(delta):
+  if pause:
+    return
   var velocity = Vector2.ZERO
   if Input.is_action_pressed("walk_right"):
     velocity.x = speed;
@@ -61,8 +74,8 @@ func _physics_process(delta):
     var r = move_and_collide(velocity * delta);
   else:
     idle_time += delta
-    if (idle_time > 2):
-      sprite.play('idle')
+#    if (idle_time > 2):
+#      sprite.play('idle')
   if Input.is_action_just_pressed("pick_item"):
     pick_up()
 
@@ -74,6 +87,8 @@ func _on_hands_area_entered(area: Area2D) -> void:
       hover_item.hover(false)
     hover_item = p
     p.hover(true)
+  if p is Cart:
+    hover_cart = p
 
 
 func _on_hands_area_exited(area: Area2D) -> void:
@@ -82,3 +97,5 @@ func _on_hands_area_exited(area: Area2D) -> void:
   if p == hover_item:
     hover_item.hover(false)
     hover_item = null
+  if p == hover_cart:
+    hover_cart = null

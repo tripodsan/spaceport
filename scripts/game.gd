@@ -1,6 +1,14 @@
 extends Node2D
 
+var debug = false
+
 func _ready():
+  if debug:
+    $mate.visible = false
+    $world.show()
+    $world.start()
+    return
+
   $mate.show()
   $credits.hide()
   $title.show()
@@ -10,6 +18,7 @@ func _on_start_pressed() -> void:
   $world.show()
   $title.hide()
   yield($mate.show(), 'completed')
+  $world.start()
 
 func _on_credits_pressed() -> void:
   yield($mate.fade(), 'completed')

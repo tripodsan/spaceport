@@ -15,10 +15,14 @@ var first:Luggage;
 
 var last:Luggage;
 
+var paused:bool = true
+
 func _ready() -> void:
   prepare_luggage()
 
 func _physics_process(delta):
+  if paused:
+    return
   belt_frame += belt_speed * delta
   if belt_frame >= 1.0:
     belt_frame -= 1.0
@@ -33,9 +37,7 @@ func prepare_luggage():
   next.visible = false
 
 func add_luggage():
-  if !first:
-    return
-  if first.position.x >= 0:
+  if !first || first.position.x >= 0:
     remove_child(next)
     $luggage.add_child(next)
     next.visible = true

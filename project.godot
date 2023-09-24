@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Cart",
+"language": "GDScript",
+"path": "res://scripts/cart.gd"
+}, {
+"base": "Node2D",
 "class": "Luggage",
 "language": "GDScript",
 "path": "res://scripts/luggage.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/luggage_type.gd"
 } ]
 _global_script_class_icons={
+"Cart": "",
 "Luggage": "",
 "LuggageType": ""
 }
