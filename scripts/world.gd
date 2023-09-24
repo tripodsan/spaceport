@@ -10,3 +10,4 @@ func _on_player_item_pick(item):
 
 func _on_player_item_drop(item):
   $preview.show_item(null)
+
