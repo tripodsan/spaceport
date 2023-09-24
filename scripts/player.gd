@@ -36,6 +36,7 @@ func pick_up():
 
   if hover_cart:
     emit_signal('on_open_cart', hover_cart, held_item)
+    emit_signal('on_item_drop', held_item)
     held_item = null
 #  elif held_item:
 #    held_item.queue_free()

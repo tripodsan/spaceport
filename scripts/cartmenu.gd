@@ -21,6 +21,7 @@ func open(cart:Cart, item:Luggage):
   _cart = cart
   if item:
     item.preview = true
+    item.hover(false)
     item.get_parent().remove_child(item)
     add_child(item)
     item.position = Vector2(32, 96)

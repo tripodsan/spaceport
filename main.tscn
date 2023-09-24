@@ -1073,15 +1073,20 @@ region_enabled = true
 region_rect = Rect2( 96, 48, 16, 16 )
 
 [node name="title" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 160.0
+margin_bottom = 144.0
 script = ExtResource( 13 )
 
 [node name="TextureRect" type="TextureRect" parent="title"]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="title"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "v1"
 
 [node name="MarginContainer" type="MarginContainer" parent="title"]
 margin_right = 40.0
@@ -1169,7 +1174,7 @@ custom_constants/margin_left = 24
 margin_left = 24.0
 margin_top = 33.0
 margin_right = 152.0
-margin_bottom = 87.0
+margin_bottom = 79.0
 
 [node name="Label" type="Label" parent="credits/MarginContainer/VBoxContainer"]
 margin_right = 128.0
