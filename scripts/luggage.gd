@@ -6,13 +6,17 @@ export(int, 0, 5) var type = 0 setget set_type
 
 export(bool) var preview = false setget set_preview
 
-export(String) var destination = 'EUR'
+export(String) var destination = 'MON'
+
+var dimension:Vector2 setget , get_dimension
+
+var cart_position:Vector2 = Vector2.ZERO
 
 var size:Vector2 setget , get_size
 
 var type_node:LuggageType
 
-func get_dimension():
+func get_dimension()->Vector2:
   return type_node.dimension
 
 func get_size() -> Vector2:
@@ -24,6 +28,10 @@ func _to_string() -> String:
 func hover(enable):
   type_node.position.y = -1 if enable else 0
 #  modulate.r = 0 if enable else 1
+
+func lock():
+  type_node.lock()
+  type_node.position.y = 0
 
 func set_preview(v):
   preview = v

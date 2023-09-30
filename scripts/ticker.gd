@@ -1,6 +1,6 @@
 extends Label
 
-export (float) var scroll_speed = 15
+export (float) var scroll_speed = 15.0
 
 var pos:float setget set_pos
 

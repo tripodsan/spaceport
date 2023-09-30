@@ -10,3 +10,4 @@ func _on_focus_enter():
 
 func _on_focus_exited():
   $Sprite.visible = false
+

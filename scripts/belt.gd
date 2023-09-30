@@ -5,7 +5,7 @@ var luggage_scene = preload("res://sprites/luggage.tscn")
 
 var belt_speed = 10
 
-var margin = 4
+var margin = 6
 
 var belt_frame = 0
 
@@ -18,6 +18,7 @@ var last:Luggage;
 var paused:bool = true
 
 func _ready() -> void:
+  randomize()
   prepare_luggage()
 
 func _physics_process(delta):

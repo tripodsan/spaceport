@@ -6,6 +6,9 @@ export var dimension:Vector2
 
 var preview:bool = false
 
+func lock():
+  $small/CollisionShape2D.disabled = true
+
 func set_enabled(v):
   visible = v
   $small/CollisionShape2D.disabled = !v

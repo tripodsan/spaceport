@@ -8,19 +8,19 @@
 extents = Vector2( 7.5, 7 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.5, 8 )
+extents = Vector2( 4, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15.5, 7 )
+extents = Vector2( 11.5, 7 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.5, 10.5 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 4.5, 9 )
+extents = Vector2( 3.5, 9 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3, 9 )
+extents = Vector2( 3.5, 9 )
 
 [node name="luggage" type="Node2D"]
 script = ExtResource( 2 )
@@ -38,7 +38,7 @@ collision_mask = 2
 position = Vector2( 8, -3 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 16, 186, 15, 6 )
+region_rect = Rect2( 16, 185, 15, 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="0/small"]
 position = Vector2( 7.5, -7 )
@@ -46,10 +46,10 @@ shape = SubResource( 1 )
 
 [node name="large" type="Sprite" parent="0"]
 visible = false
-position = Vector2( 13, -7 )
+position = Vector2( 16, -7 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 115, 145, 26, 15 )
+region_rect = Rect2( 112, 145, 31, 15 )
 
 [node name="1" type="Node2D" parent="."]
 visible = false
@@ -57,25 +57,25 @@ script = ExtResource( 3 )
 dimension = Vector2( 1, 1 )
 
 [node name="small" type="Area2D" parent="1"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="sprite" type="Sprite" parent="1/small"]
-position = Vector2( 5, -3 )
+position = Vector2( 4, -3 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 186, 9, 6 )
+region_rect = Rect2( 32, 185, 8, 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="1/small"]
-position = Vector2( 4.5, -8 )
+position = Vector2( 4, -8 )
 shape = SubResource( 2 )
 
 [node name="large" type="Sprite" parent="1"]
-visible = false
-position = Vector2( 8, -6 )
+position = Vector2( 8, -7 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 113, 162, 15, 13 )
+region_rect = Rect2( 112, 162, 15, 14 )
 
 [node name="2" type="Node2D" parent="."]
 visible = false
@@ -87,49 +87,49 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="sprite" type="Sprite" parent="2/small"]
-position = Vector2( 16, -1 )
+position = Vector2( 12, -2 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 48, 189, 31, 3 )
+region_rect = Rect2( 48, 188, 23, 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="2/small"]
-position = Vector2( 15.5, -7 )
+position = Vector2( 11.5, -7 )
 shape = SubResource( 3 )
 
 [node name="large" type="Sprite" parent="2"]
 visible = false
-position = Vector2( 18, -1 )
+position = Vector2( 23, -4 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 120, 204, 35, 3 )
+region_rect = Rect2( 113, 200, 46, 8 )
 
 [node name="3" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 3 )
-dimension = Vector2( 2, 1 )
+dimension = Vector2( 2, 2 )
 
 [node name="small" type="Area2D" parent="3"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="sprite" type="Sprite" parent="3/small"]
-position = Vector2( 8, -5 )
+position = Vector2( 8, -7 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 32, 197, 15, 11 )
+region_rect = Rect2( 32, 193, 15, 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="3/small"]
 position = Vector2( 7.5, -10.5 )
 shape = SubResource( 4 )
 
 [node name="large" type="Sprite" parent="3"]
-visible = false
-position = Vector2( 14, -8 )
+position = Vector2( 16, -15 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 131, 176, 28, 16 )
+region_rect = Rect2( 128, 162, 31, 30 )
 
 [node name="4" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 3 )
 dimension = Vector2( 1, 1 )
 
@@ -138,13 +138,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="sprite" type="Sprite" parent="4/small"]
-position = Vector2( 5, -4 )
+position = Vector2( 4, -4 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 16, 199, 9, 9 )
+region_rect = Rect2( 16, 200, 7, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="4/small"]
-position = Vector2( 4.5, -9 )
+position = Vector2( 3.5, -9 )
 shape = SubResource( 5 )
 
 [node name="large" type="Sprite" parent="4"]
@@ -152,7 +152,7 @@ visible = false
 position = Vector2( 8, -8 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 144, 144, 16, 16 )
+region_rect = Rect2( 144, 144, 15, 16 )
 
 [node name="5" type="Node2D" parent="."]
 visible = false
@@ -160,22 +160,22 @@ script = ExtResource( 3 )
 dimension = Vector2( 1, 2 )
 
 [node name="small" type="Area2D" parent="5"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="sprite" type="Sprite" parent="5/small"]
-position = Vector2( 3, -7 )
+position = Vector2( 4, -7 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 48, 193, 6, 15 )
+region_rect = Rect2( 48, 193, 7, 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="5/small"]
-position = Vector2( 3, -9 )
+position = Vector2( 3.5, -9 )
 shape = SubResource( 6 )
 
 [node name="large" type="Sprite" parent="5"]
-visible = false
-position = Vector2( 8, -13 )
+position = Vector2( 8, -15 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 161, 147, 15, 26 )
+region_rect = Rect2( 160, 145, 15, 31 )
