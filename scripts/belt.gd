@@ -1,67 +1,92 @@
-extends TileMap
-
+extends Node2D
 
 var luggage_scene = preload("res://sprites/luggage.tscn")
 
-var belt_speed = 10
+const FEEDER_POS = 23
 
 var margin = 6
 
-var belt_frame = 0
-
 var next:Luggage;
 
-var first:Luggage;
-
-var last:Luggage;
+var next_wait:bool = false
 
 var paused:bool = true
+
+var speed:int = 10
 
 func _ready() -> void:
   randomize()
   prepare_luggage()
+  set_speed(speed)
 
-func _physics_process(delta):
-  if paused:
-    return
-  belt_frame += belt_speed * delta
-  if belt_frame >= 1.0:
-    belt_frame -= 1.0
-    move_belt()
+func _on_surface_frame_changed() -> void:
+  if !paused:
     move_luggage()
 
 func prepare_luggage():
   next = luggage_scene.instance()
   next.set_random_type()
-  add_child(next)
-  next.position = Vector2(-100, -100)
-  next.visible = false
+  $luggage.add_child(next)
+  next.position = Vector2(FEEDER_POS - next.size.x/2, 144 + next.size.y)
+  next.visible = true
 
-func add_luggage():
-  if !first || first.position.x >= 0:
-    remove_child(next)
-    $luggage.add_child(next)
-    next.visible = true
-    next.position = Vector2(-next.size.x - margin, 134);
-    first = next
-    prepare_luggage()
+func set_speed(s):
+  speed = s
+  $surface.play('default')
+  $surface.frames.set_animation_speed('default', speed)
+  if next_wait:
+    $feeder.stop()
+  else:
+    $feeder.play('default')
+    $feeder.frames.set_animation_speed('default', speed)
 
 func move_luggage():
-  first = null
-  last = null
+  var min_pos = 0
+  var max_pos = 160
+  var last:Luggage = null
+  var first:Luggage = null
   for child in $luggage.get_children():
-    child.position.x += 1
-    if !first || child.position.x < first.position.x:
-      first = child
-    if !last || child.position.x > last.position.x:
-      last = child
+    if child != next:
+      child.position.x += 1
+      var x0 = child.position.x
+      var x1 = x0 + child.size.x
+      if x0 >= FEEDER_POS:
+        max_pos = min(max_pos, x0)
+      elif x1 >= FEEDER_POS:
+        max_pos = 0
+      if x1 <= FEEDER_POS:
+        min_pos = max(min_pos, x1)
+      elif x0 <= FEEDER_POS:
+        min_pos = 160
+      if !last or x0 > last.position.x:
+        last = child
+      if !first or x0 < first.position.x:
+        first = child
+
   if last && last.position.x > 160:
-    last.position.x = min(0, first.position.x) - last.size.x - margin
-    first = last
-  add_luggage()
+      last.position.x = min(0, first.position.x) - last.size.x - margin
 
-func move_belt():
-  $surface.position.x += 1.0
-  if ($surface.position.x >= 4.0):
-    $surface.position.x -= 4.0
+  if $debug.visible:
+    if max_pos > min_pos:
+      $debug.position.x = min_pos
+      $debug.size = Vector2(max_pos - min_pos, 5)
+    else:
+      $debug.size = Vector2(0, 5)
 
+  if next_wait:
+    # check if enough rooom
+    var x0 = next.position.x - next.size.y
+    var x1 = next.position.x + next.size.x
+    if max_pos > x1 and min_pos < x0:
+      next.position.y -= 1
+      next_wait = false
+      set_speed(speed)
+  else:
+    next.position.y -= 1
+
+  if next.position.y == 132 + next.size.y + 1:
+    next_wait = true
+    set_speed(speed)
+  if next.position.y == 132:
+    next.set_pickable(true)
+    prepare_luggage()

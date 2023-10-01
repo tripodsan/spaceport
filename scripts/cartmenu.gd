@@ -106,10 +106,6 @@ func _input(event: InputEvent) -> void:
     move(-1)
   if event.is_action_pressed('walk_right'):
     move(1)
-#  if event.is_action_pressed('walk_up'):
-#    move(Vector2.DOWN)
-#  if event.is_action_pressed('walk_down'):
-#    move(Vector2.UP)
 
 func _process(delta: float) -> void:
   if !visible:

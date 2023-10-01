@@ -26,12 +26,10 @@ func _to_string() -> String:
   return "Luggage type %d %s" % [type, type_node.dimension]
 
 func hover(enable):
-  type_node.position.y = -1 if enable else 0
-#  modulate.r = 0 if enable else 1
+  type_node.set_hover(enable)
 
-func lock():
-  type_node.lock()
-  type_node.position.y = 0
+func set_pickable(v):
+  type_node.set_pickable(v)
 
 func set_preview(v):
   preview = v

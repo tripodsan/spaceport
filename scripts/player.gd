@@ -121,12 +121,14 @@ func _input(event):
 func _on_hands_area_entered(area: Area2D) -> void:
   hover_control_panel = area.name == 'ControlPanel'
   var p = area.get_parent().get_parent()
-#  prints('enter', p)
   if p is Luggage:
     if hover_item:
       hover_item.hover(false)
-    hover_item = p
-    p.hover(true)
+    if held_item:
+      hover_item = null
+    else:
+      hover_item = p
+      p.hover(true)
   if p is Cart:
     hover_cart = p
 
