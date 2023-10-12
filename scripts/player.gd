@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 const SPEED_RUN:int = 60
 const SPEED_WALK:int = 30
 
@@ -106,6 +108,7 @@ func _physics_process(delta):
 
   var new_moving = velocity != Vector2.ZERO;
   if new_moving:
+    # warning-ignore:return_value_discarded
     move_and_collide(velocity * delta);
     idle_time = 0
   else:

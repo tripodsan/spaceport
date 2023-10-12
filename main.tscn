@@ -926,6 +926,174 @@ points = PoolVector2Array( 16, 7.27513, 0, 7.27513, 0, 0, 16, 0 )
 70/shape_one_way_margin = 0.0
 70/shapes = [  ]
 70/z_index = 0
+71/name = "tiles.png 71"
+71/texture = ExtResource( 5 )
+71/tex_offset = Vector2( 0, 0 )
+71/modulate = Color( 1, 1, 1, 1 )
+71/region = Rect2( 160, 16, 16, 16 )
+71/tile_mode = 0
+71/occluder_offset = Vector2( 0, 0 )
+71/navigation_offset = Vector2( 0, 0 )
+71/shape_offset = Vector2( 0, 0 )
+71/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+71/shape_one_way = false
+71/shape_one_way_margin = 0.0
+71/shapes = [  ]
+71/z_index = 0
+72/name = "tiles.png 72"
+72/texture = ExtResource( 5 )
+72/tex_offset = Vector2( 0, 0 )
+72/modulate = Color( 1, 1, 1, 1 )
+72/region = Rect2( 176, 16, 16, 16 )
+72/tile_mode = 0
+72/occluder_offset = Vector2( 0, 0 )
+72/navigation_offset = Vector2( 0, 0 )
+72/shape_offset = Vector2( 0, 0 )
+72/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+72/shape_one_way = false
+72/shape_one_way_margin = 0.0
+72/shapes = [  ]
+72/z_index = 0
+73/name = "tiles.png 73"
+73/texture = ExtResource( 5 )
+73/tex_offset = Vector2( 0, 0 )
+73/modulate = Color( 1, 1, 1, 1 )
+73/region = Rect2( 192, 16, 16, 16 )
+73/tile_mode = 0
+73/occluder_offset = Vector2( 0, 0 )
+73/navigation_offset = Vector2( 0, 0 )
+73/shape_offset = Vector2( 0, 0 )
+73/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+73/shape_one_way = false
+73/shape_one_way_margin = 0.0
+73/shapes = [  ]
+73/z_index = 0
+74/name = "tiles.png 74"
+74/texture = ExtResource( 5 )
+74/tex_offset = Vector2( 0, 0 )
+74/modulate = Color( 1, 1, 1, 1 )
+74/region = Rect2( 176, 48, 16, 16 )
+74/tile_mode = 0
+74/occluder_offset = Vector2( 0, 0 )
+74/navigation_offset = Vector2( 0, 0 )
+74/shape_offset = Vector2( 0, 0 )
+74/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+74/shape_one_way = false
+74/shape_one_way_margin = 0.0
+74/shapes = [  ]
+74/z_index = 0
+75/name = "tiles.png 75"
+75/texture = ExtResource( 5 )
+75/tex_offset = Vector2( 0, 0 )
+75/modulate = Color( 1, 1, 1, 1 )
+75/region = Rect2( 192, 48, 16, 16 )
+75/tile_mode = 0
+75/occluder_offset = Vector2( 0, 0 )
+75/navigation_offset = Vector2( 0, 0 )
+75/shape_offset = Vector2( 0, 0 )
+75/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+75/shape_one_way = false
+75/shape_one_way_margin = 0.0
+75/shapes = [  ]
+75/z_index = 0
+76/name = "tiles.png 76"
+76/texture = ExtResource( 5 )
+76/tex_offset = Vector2( 0, 0 )
+76/modulate = Color( 1, 1, 1, 1 )
+76/region = Rect2( 208, 48, 16, 16 )
+76/tile_mode = 0
+76/occluder_offset = Vector2( 0, 0 )
+76/navigation_offset = Vector2( 0, 0 )
+76/shape_offset = Vector2( 0, 0 )
+76/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+76/shape_one_way = false
+76/shape_one_way_margin = 0.0
+76/shapes = [  ]
+76/z_index = 0
+77/name = "tiles.png 77"
+77/texture = ExtResource( 5 )
+77/tex_offset = Vector2( 0, 0 )
+77/modulate = Color( 1, 1, 1, 1 )
+77/region = Rect2( 176, 64, 16, 16 )
+77/tile_mode = 0
+77/occluder_offset = Vector2( 0, 0 )
+77/navigation_offset = Vector2( 0, 0 )
+77/shape_offset = Vector2( 0, 0 )
+77/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+77/shape_one_way = false
+77/shape_one_way_margin = 0.0
+77/shapes = [  ]
+77/z_index = 0
+78/name = "tiles.png 78"
+78/texture = ExtResource( 5 )
+78/tex_offset = Vector2( 0, 0 )
+78/modulate = Color( 1, 1, 1, 1 )
+78/region = Rect2( 192, 64, 16, 16 )
+78/tile_mode = 0
+78/occluder_offset = Vector2( 0, 0 )
+78/navigation_offset = Vector2( 0, 0 )
+78/shape_offset = Vector2( 0, 0 )
+78/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+78/shape_one_way = false
+78/shape_one_way_margin = 0.0
+78/shapes = [  ]
+78/z_index = 0
+79/name = "tiles.png 79"
+79/texture = ExtResource( 5 )
+79/tex_offset = Vector2( 0, 0 )
+79/modulate = Color( 1, 1, 1, 1 )
+79/region = Rect2( 208, 64, 16, 16 )
+79/tile_mode = 0
+79/occluder_offset = Vector2( 0, 0 )
+79/navigation_offset = Vector2( 0, 0 )
+79/shape_offset = Vector2( 0, 0 )
+79/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+79/shape_one_way = false
+79/shape_one_way_margin = 0.0
+79/shapes = [  ]
+79/z_index = 0
+80/name = "tiles.png 80"
+80/texture = ExtResource( 5 )
+80/tex_offset = Vector2( 0, 0 )
+80/modulate = Color( 1, 1, 1, 1 )
+80/region = Rect2( 208, 16, 16, 16 )
+80/tile_mode = 0
+80/occluder_offset = Vector2( 0, 0 )
+80/navigation_offset = Vector2( 0, 0 )
+80/shape_offset = Vector2( 0, 0 )
+80/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+80/shape_one_way = false
+80/shape_one_way_margin = 0.0
+80/shapes = [  ]
+80/z_index = 0
+81/name = "tiles.png 81"
+81/texture = ExtResource( 5 )
+81/tex_offset = Vector2( 0, 0 )
+81/modulate = Color( 1, 1, 1, 1 )
+81/region = Rect2( 224, 16, 16, 16 )
+81/tile_mode = 0
+81/occluder_offset = Vector2( 0, 0 )
+81/navigation_offset = Vector2( 0, 0 )
+81/shape_offset = Vector2( 0, 0 )
+81/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+81/shape_one_way = false
+81/shape_one_way_margin = 0.0
+81/shapes = [  ]
+81/z_index = 0
+82/name = "tiles.png 82"
+82/texture = ExtResource( 5 )
+82/tex_offset = Vector2( 0, 0 )
+82/modulate = Color( 1, 1, 1, 1 )
+82/region = Rect2( 240, 16, 16, 16 )
+82/tile_mode = 0
+82/occluder_offset = Vector2( 0, 0 )
+82/navigation_offset = Vector2( 0, 0 )
+82/shape_offset = Vector2( 0, 0 )
+82/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+82/shape_one_way = false
+82/shape_one_way_margin = 0.0
+82/shapes = [  ]
+82/z_index = 0
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
@@ -1235,7 +1403,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 6, 2 )
+extents = Vector2( 7, 2 )
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 4, 11 )
@@ -1319,39 +1487,41 @@ tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 cell_tile_origin = 1
 format = 1
-tile_data = PoolIntArray( 0, 20, 0, 1, 38, 0, 3, 39, 0, 4, 20, 0, 5, 19, 0, 6, 19, 0, 7, 19, 0, 8, 19, 0, 9, 20, 0, 65536, 0, 0, 65537, 1, 0, 65538, 1, 0, 65539, 2, 0, 65540, 0, 0, 65541, 1, 0, 65542, 1, 0, 65543, 2, 0, 65544, 37, 0, 65545, 37, 0, 131072, 3, 0, 131073, 4, 0, 131074, 4, 0, 131075, 5, 0, 131076, 3, 0, 131077, 4, 0, 131078, 4, 0, 131079, 5, 0, 131080, 37, 0, 131081, 37, 0, 262143, 37, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 37, 0, 327679, 37, 0, 262154, 37, 0, 393215, 37, 0, 327690, 37, 0, 458751, 37, 0, 393226, 37, 0, 524287, 37, 0, 458762, 37, 0, 589823, 37, 0, 524298, 37, 0, 655359, 37, 0, 589824, 37, 0, 589825, 37, 0, 589826, 37, 0, 589827, 37, 0, 589828, 37, 0, 589829, 37, 0, 589830, 37, 0, 589831, 37, 0, 589832, 37, 0, 589833, 37, 0, 589834, 37, 0 )
+tile_data = PoolIntArray( 0, 71, 0, 1, 72, 0, 2, 72, 0, 3, 72, 0, 4, 72, 0, 5, 72, 0, 6, 72, 0, 7, 72, 0, 8, 72, 0, 9, 73, 0, 65536, 75, 0, 65537, 75, 0, 65538, 76, 0, 65539, 74, 0, 65540, 75, 0, 65541, 75, 0, 65542, 76, 0, 65543, 74, 0, 65544, 75, 0, 65545, 75, 0, 131072, 78, 0, 131073, 78, 0, 131074, 79, 0, 131075, 77, 0, 131076, 78, 0, 131077, 78, 0, 131078, 79, 0, 131079, 77, 0, 131080, 78, 0, 131081, 78, 0, 262143, 37, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 37, 0, 327679, 37, 0, 262154, 37, 0, 393215, 37, 0, 327690, 37, 0, 458751, 37, 0, 393226, 37, 0, 524287, 37, 0, 458762, 37, 0, 589823, 37, 0, 524298, 37, 0, 655359, 37, 0, 589824, 37, 0, 589825, 37, 0, 589826, 37, 0, 589827, 37, 0, 589828, 37, 0, 589829, 37, 0, 589830, 37, 0, 589831, 37, 0, 589832, 37, 0, 589833, 37, 0, 589834, 37, 0 )
 
-[node name="display" type="TileMap" parent="world"]
-tile_set = SubResource( 7 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 5, 23, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 25, 0, 65541, 26, 0, 65542, 27, 0, 65543, 27, 0, 65544, 27, 0, 65545, 28, 0, 131077, 26, 0, 131078, 27, 0, 131079, 27, 0, 131080, 27, 0, 131081, 28, 0, 196613, 29, 0, 196614, 30, 0, 196615, 30, 0, 196616, 30, 0, 196617, 31, 0 )
-
-[node name="Label" type="Label" parent="world/display"]
+[node name="ticker" type="Label" parent="world/wall"]
+unique_name_in_owner = true
 use_parent_material = true
-margin_left = 85.0
-margin_top = 11.0
-margin_right = 157.0
-margin_bottom = 51.0
+margin_left = 3.0
+margin_top = 4.0
+margin_right = 160.0
+margin_bottom = 14.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.819608, 0.788235, 0.631373, 1 )
 custom_constants/line_spacing = 0
 custom_fonts/font = ExtResource( 3 )
-text = "Departures
-Moon  0900 E
-Mars  0930 B"
+text = "Moon 01:34 - Gate A"
 script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="world/wall/ticker"]
+
+[node name="display" type="TileMap" parent="world"]
+tile_set = SubResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 80, 0, 1, 81, 0, 2, 81, 0, 3, 81, 0, 4, 81, 0, 5, 81, 0, 6, 81, 0, 7, 81, 0, 8, 81, 0, 9, 82, 0 )
 
 [node name="YSort" type="YSort" parent="world"]
 
 [node name="cart0" parent="world/YSort" instance=ExtResource( 18 )]
-position = Vector2( 3, 97 )
+position = Vector2( 3, 89 )
 
 [node name="cart1" parent="world/YSort" instance=ExtResource( 18 )]
-position = Vector2( 90, 97 )
+position = Vector2( 90, 89 )
 
 [node name="player" type="KinematicBody2D" parent="world/YSort"]
+unique_name_in_owner = true
 position = Vector2( 60, 121 )
 script = ExtResource( 6 )
 
@@ -1430,11 +1600,10 @@ custom_fonts/font = ExtResource( 3 )
 text = "MON"
 
 [node name="cartmenu" type="TileMap" parent="world"]
-visible = false
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 6, 24, 0, 7, 24, 0, 65537, 51, 0, 65538, 52, 0, 65539, 52, 0, 65540, 52, 0, 65541, 52, 0, 65542, 52, 0, 65543, 52, 0, 65544, 53, 0, 131073, 68, 0, 131074, 55, 0, 131075, 58, 0, 131076, 58, 0, 131077, 58, 0, 131078, 58, 0, 131079, 58, 0, 131080, 69, 0, 196609, 57, 0, 196610, 55, 0, 196611, 58, 0, 196612, 58, 0, 196613, 58, 0, 196614, 58, 0, 196615, 58, 0, 196616, 66, 0, 262145, 57, 0, 262146, 55, 0, 262147, 58, 0, 262148, 58, 0, 262149, 58, 0, 262150, 58, 0, 262151, 58, 0, 262152, 66, 0, 327681, 57, 0, 327682, 55, 0, 327683, 58, 0, 327684, 58, 0, 327685, 58, 0, 327686, 58, 0, 327687, 58, 0, 327688, 66, 0, 393217, 60, 0, 393218, 61, 0, 393219, 61, 0, 393220, 61, 0, 393221, 61, 0, 393222, 61, 0, 393223, 61, 0, 393224, 67, 0, 458753, 63, 0, 458754, 64, 0, 458755, 64, 0, 458756, 64, 0, 458757, 64, 0, 458758, 64, 0, 458759, 64, 0, 458760, 65, 0 )
+tile_data = PoolIntArray( 65537, 51, 0, 65538, 52, 0, 65539, 52, 0, 65540, 52, 0, 65541, 52, 0, 65542, 52, 0, 65543, 52, 0, 65544, 53, 0, 131073, 68, 0, 131074, 55, 0, 131075, 58, 0, 131076, 58, 0, 131077, 58, 0, 131078, 58, 0, 131079, 58, 0, 131080, 69, 0, 196609, 57, 0, 196610, 55, 0, 196611, 58, 0, 196612, 58, 0, 196613, 58, 0, 196614, 58, 0, 196615, 58, 0, 196616, 66, 0, 262145, 57, 0, 262146, 55, 0, 262147, 58, 0, 262148, 58, 0, 262149, 58, 0, 262150, 58, 0, 262151, 58, 0, 262152, 66, 0, 327681, 57, 0, 327682, 55, 0, 327683, 58, 0, 327684, 58, 0, 327685, 58, 0, 327686, 58, 0, 327687, 58, 0, 327688, 66, 0, 393217, 60, 0, 393218, 61, 0, 393219, 61, 0, 393220, 61, 0, 393221, 61, 0, 393222, 61, 0, 393223, 61, 0, 393224, 67, 0, 458753, 63, 0, 458754, 64, 0, 458755, 64, 0, 458756, 64, 0, 458757, 64, 0, 458758, 64, 0, 458759, 64, 0, 458760, 65, 0 )
 script = ExtResource( 19 )
 
 [node name="time" type="Label" parent="world/cartmenu"]

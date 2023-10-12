@@ -1,10 +1,10 @@
 extends Node2D
 
-var game_start:int
+onready var player:Player = get_node('%player')
 
-var beginning_of_time = Time.get_unix_time_from_datetime_string('2034-04-01T08:00:00Z')
+onready var ticker:Ticker = get_node('%ticker')
 
-onready var player = $YSort/player
+var flights:Array = []
 
 func _ready() -> void:
   assert(!player.connect('on_item_drop', self, '_on_player_item_drop'))
@@ -18,6 +18,7 @@ func _ready() -> void:
 func _on_player_item_pick(item):
   $preview.show_item(item)
 
+# warning-ignore:unused_argument
 func _on_player_item_drop(item):
   $preview.show_item(null)
 
@@ -38,17 +39,28 @@ func _on_control_panel_close():
   player.pause(false)
 
 func start():
+  Globals.start()
   $bg_music.play()
   $belt.paused = false
+  ticker.pause(false)
   player.pause(false)
-  game_start = Time.get_ticks_msec()
-
-func get_time()->int:
-  return (Time.get_ticks_msec() - game_start) / 1000 + beginning_of_time
+  create_flight()
 
 func stop():
   $bg_music.stop()
   $belt.paused = true
+  ticker.pause(true)
+  player.pause(true)
+  Globals.stop()
 
 func _on_cart_dispatch(cart):
   cart.clear()
+
+func create_flight():
+  var f = Flight.new(Globals.get_time() + 3*60, 'MON', 'A');
+  flights.push_back(f)
+  ticker.add_line(f)
+  f = Flight.new(5*60, 'EUR', 'B');
+  flights.push_back(f)
+  ticker.add_line(f)
+

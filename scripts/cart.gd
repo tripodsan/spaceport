@@ -27,10 +27,11 @@ func set_full(v):
   if v:
     $control/control_lamp/blink.play('blink')
   else:
-    $control/control_lamp/blink.stop()
     $control/control_lamp/blink.seek(0, true)
+    $control/control_lamp/blink.stop(true)
 
 func add_item(item:Luggage):
+  set_full(true)
   item.preview = false
   item.set_pickable(false)
   $items.add_child(item)

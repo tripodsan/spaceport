@@ -73,6 +73,7 @@ func check_full()->bool:
   return find_fit(Vector2(1, 1), -1, 1).x < 0
 
 func move(dx):
+  # warning-ignore:narrowing_conversion
   var new_pos = find_fit(_item.dimension, _item.cart_position.x, dx)
   if new_pos.x >= 0:
     _item.cart_position = new_pos
@@ -107,10 +108,11 @@ func _input(event: InputEvent) -> void:
   if event.is_action_pressed('walk_right'):
     move(1)
 
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
   if !visible:
     return
-  var time = world.get_time()
+  var time = Globals.get_wall_time()
   if time != last_time:
     last_time = time
     $time.text = Time.get_time_string_from_unix_time(time)
