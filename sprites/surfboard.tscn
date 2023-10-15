@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/items.png" type="Texture" id=1]
+[ext_resource path="res://scripts/luggage.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 11.5, 2 )
+
+[node name="5" type="Node2D"]
+script = ExtResource( 2 )
+dimension = Vector2( 3, 1 )
+
+[node name="small" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="sprite" type="Sprite" parent="small"]
+position = Vector2( 12, -2 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 140, 23, 4 )
+
+[node name="hover" type="Sprite" parent="small"]
+position = Vector2( 12, -2 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 31, 139, 25, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="small"]
+position = Vector2( 11.5, -2 )
+shape = SubResource( 28 )
+
+[node name="large" type="Sprite" parent="."]
+visible = false
+position = Vector2( 24, -8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 48, 16 )

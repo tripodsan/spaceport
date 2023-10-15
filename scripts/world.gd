@@ -1,12 +1,15 @@
 extends Node2D
 
+var flight_scene = preload("res://sprites/flight.tscn")
+
 onready var player:Player = get_node('%player')
 
 onready var ticker:Ticker = get_node('%ticker')
 
-var flights:Array = []
+onready var flights:Node2D = get_node('%flights')
 
 func _ready() -> void:
+  randomize()
   assert(!player.connect('on_item_drop', self, '_on_player_item_drop'))
   assert(!player.connect('on_open_cart', self, '_on_player_open_cart'))
   assert(!player.connect('on_open_control_panel', self, '_on_player_open_control_panel'))
@@ -40,11 +43,11 @@ func _on_control_panel_close():
 
 func start():
   Globals.start()
+  create_flight()
   $bg_music.play()
-  $belt.paused = false
+  $belt.start()
   ticker.pause(false)
   player.pause(false)
-  create_flight()
 
 func stop():
   $bg_music.stop()
@@ -57,10 +60,21 @@ func _on_cart_dispatch(cart):
   cart.clear()
 
 func create_flight():
-  var f = Flight.new(Globals.get_time() + 3*60, 'MON', 'A');
-  flights.push_back(f)
-  ticker.add_line(f)
-  f = Flight.new(5*60, 'EUR', 'B');
-  flights.push_back(f)
+  var f:Flight = flight_scene.instance()
+  flights.add_child(f)
+  f.destination = 'MON'
+  f.dock = 'A'
+  f.time = Globals.get_time() + 3*60
+  f.add_luggage(0)
+  f.add_luggage(1)
   ticker.add_line(f)
 
+func get_next_luggage()->Luggage:
+  var fs = []
+  for f in flights.get_children():
+    if f.get_luggage_count() > 0:
+      fs.push_back(f)
+  if fs.size() == 0:
+    return null
+  var idx = randi() % fs.size()
+  return fs[idx].remove_random_luggage()

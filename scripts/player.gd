@@ -123,28 +123,30 @@ func _input(event):
 
 func _on_hands_area_entered(area: Area2D) -> void:
   hover_control_panel = area.name == 'ControlPanel'
-  var p = area.get_parent().get_parent()
+  var p = area.get_parent()
+  var pp = p.get_parent()
   if p is Luggage:
     if hover_item:
-      hover_item.hover(false)
+      hover_item.set_hover(false)
     if held_item:
       hover_item = null
     else:
       hover_item = p
-      p.hover(true)
-  if p is Cart:
-    hover_cart = p
+      p.set_hover(true)
+  if pp is Cart:
+    hover_cart = pp
 
 
 func _on_hands_area_exited(area: Area2D) -> void:
   if area.name == 'ControlPanel':
     hover_control_panel = false
-  var p = area.get_parent().get_parent()
+  var p = area.get_parent()
+  var pp = p.get_parent()
 #  prints(' exit', p)
   if p == hover_item:
-    hover_item.hover(false)
+    hover_item.set_hover(false)
     hover_item = null
-  if p == hover_cart:
+  if pp == hover_cart:
     hover_cart = null
 
 func _on_AnimatedSprite_frame_changed() -> void:

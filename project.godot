@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/cart.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "Flight",
 "language": "GDScript",
 "path": "res://scripts/flight.gd"
@@ -25,9 +25,9 @@ _global_script_classes=[ {
 "path": "res://scripts/luggage.gd"
 }, {
 "base": "Node2D",
-"class": "LuggageType",
+"class": "LuggageOld",
 "language": "GDScript",
-"path": "res://scripts/luggage_type.gd"
+"path": "res://scripts/luggage_old.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -43,7 +43,7 @@ _global_script_class_icons={
 "Cart": "",
 "Flight": "",
 "Luggage": "",
-"LuggageType": "",
+"LuggageOld": "",
 "Player": "",
 "Ticker": ""
 }

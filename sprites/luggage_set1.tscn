@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/suitecase_tall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/suitecase_box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/backpack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/suitecase_wide.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/cage.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/surfboard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/luggage.gd" type="Script" id=7]
+
+[node name="set1" type="Node2D"]
+
+[node name="19" type="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104, -24 )
+script = ExtResource( 7 )
+dimension = Vector2( 1, 1 )
+
+[node name="20" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 0 )
+script = ExtResource( 7 )
+dimension = Vector2( 1, 2 )
+
+[node name="21" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104, 0 )
+script = ExtResource( 7 )
+dimension = Vector2( 1, 2 )
+
+[node name="12" type="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 0 )
+script = ExtResource( 7 )
+dimension = Vector2( 2, 2 )
+
+[node name="13" type="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 80, 0 )
+script = ExtResource( 7 )
+dimension = Vector2( 2, 2 )
+
+[node name="14" type="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 64, -16 )
+script = ExtResource( 7 )
+dimension = Vector2( 3, 1 )
+
+[node name="15" type="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88, -16 )
+script = ExtResource( 7 )
+dimension = Vector2( 3, 1 )
+
+[node name="16" type="Node2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 88, -24 )
+script = ExtResource( 7 )
+dimension = Vector2( 2, 1 )
+
+[node name="17" type="Node2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, -24 )
+script = ExtResource( 7 )
+dimension = Vector2( 2, 1 )
+
+[node name="18" type="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, -24 )
+script = ExtResource( 7 )
+dimension = Vector2( 1, 1 )

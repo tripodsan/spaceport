@@ -1,7 +1,5 @@
 extends TileMap
 
-var luggage_scene = preload("res://sprites/luggage.tscn")
-
 onready var world = get_parent()
 
 var last_time:int = 0
@@ -34,7 +32,7 @@ func open(cart:Cart, item:Luggage):
   update_heights()
   if item:
     item.preview = true
-    item.hover(false)
+    item.hover = false
     item.get_parent().remove_child(item)
     $items.add_child(item)
     var pos = find_fit(item.dimension, -1, 1)

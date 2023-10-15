@@ -31,7 +31,6 @@ func set_full(v):
     $control/control_lamp/blink.stop(true)
 
 func add_item(item:Luggage):
-  set_full(true)
   item.preview = false
   item.set_pickable(false)
   $items.add_child(item)

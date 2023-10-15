@@ -1460,7 +1460,12 @@ animations = [ {
 script = ExtResource( 15 )
 
 [node name="world" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource( 7 )
+
+[node name="flights" type="Node2D" parent="world"]
+unique_name_in_owner = true
+visible = false
 
 [node name="bg_music" type="AudioStreamPlayer" parent="world"]
 stream = ExtResource( 12 )
@@ -1600,6 +1605,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "MON"
 
 [node name="cartmenu" type="TileMap" parent="world"]
+visible = false
 tile_set = SubResource( 7 )
 cell_size = Vector2( 16, 16 )
 format = 1

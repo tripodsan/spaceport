@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/flight.gd" type="Script" id=5]
+
+[node name="flight" type="Node2D"]
+script = ExtResource( 5 )
+destination = "MON"
+dock = "A"
+
+[node name="luggage" type="Node2D" parent="."]
+unique_name_in_owner = true
+__meta__ = {
+"_editor_description_": "pending luggage"
+}
+
+[node name="carts" type="Node2D" parent="."]
+unique_name_in_owner = true
+__meta__ = {
+"_editor_description_": "full carts"
+}

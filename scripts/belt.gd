@@ -1,8 +1,8 @@
 extends Node2D
 
-var luggage_scene = preload("res://sprites/luggage.tscn")
-
 const FEEDER_POS = 23
+
+onready var world = get_parent()
 
 var margin = 6
 
@@ -15,20 +15,23 @@ var paused:bool = true
 var speed:int = 10
 
 func _ready() -> void:
-  randomize()
-  prepare_luggage()
   set_speed(speed)
 
 func _on_surface_frame_changed() -> void:
   if !paused:
     move_luggage()
 
+func start():
+  paused = false
+  if !next:
+    prepare_luggage()
+
 func prepare_luggage():
-  next = luggage_scene.instance()
-  next.set_random_type()
-  $luggage.add_child(next)
-  next.position = Vector2(FEEDER_POS - next.size.x/2, 144 + next.size.y)
-  next.visible = true
+  next = world.get_next_luggage()
+  if next:
+    $luggage.add_child(next)
+    next.position = Vector2(FEEDER_POS - next.size.x/2, 144 + next.size.y)
+    next.visible = true
 
 func set_speed(s):
   speed = s
@@ -72,6 +75,9 @@ func move_luggage():
       $debug.size = Vector2(max_pos - min_pos, 5)
     else:
       $debug.size = Vector2(0, 5)
+
+  if !next:
+    return
 
   if next_wait:
     # check if enough rooom
