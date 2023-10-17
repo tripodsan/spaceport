@@ -31,6 +31,10 @@ func add_luggage(set_nr:int):
 func get_luggage_count()->int:
   return luggage.get_child_count()
 
+func add_cart(cart:Cart):
+  cart.visible = false
+  carts.add_child(cart)
+
 func remove_random_luggage()->Luggage:
   if luggage.get_child_count() == 0:
     return null

@@ -29,9 +29,10 @@ func _on_player_open_cart(cart, item):
   player.pause(true)
   $cartmenu.open(cart, item)
 
-func _on_player_open_control_panel(cart):
-  player.pause(true)
-  $dispatch.open(cart)
+func _on_player_open_control_panel(cart_controller:CartController):
+  if cart_controller.can_open():
+    $dispatch.open(cart_controller, flights.get_children())
+    player.pause(true)
 
 func _on_cartmenu_close(item):
   player.pause(false)
@@ -56,8 +57,9 @@ func stop():
   player.pause(true)
   Globals.stop()
 
-func _on_cart_dispatch(cart):
-  cart.clear()
+func _on_cart_dispatch(cart:Cart, flight:Flight):
+  flight.add_cart(cart)
+  # TODO: check if flight is complete
 
 func create_flight():
   var f:Flight = flight_scene.instance()

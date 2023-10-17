@@ -17,7 +17,7 @@ var hover_item:Luggage
 
 var hover_cart:Cart
 
-var hover_control_panel:bool = false
+var hover_cart_controller:CartController
 
 var direction = 0
 
@@ -33,7 +33,7 @@ signal on_item_drop(item)
 
 signal on_open_cart(cart, item)
 
-signal on_open_control_panel(cart)
+signal on_open_control_panel(cart_controller)
 
 func take_item(item:Luggage):
   held_item = item
@@ -45,14 +45,12 @@ func take_item(item:Luggage):
 func pick_up():
   if hover_item and not held_item:
     take_item(hover_item)
-
-  if hover_cart:
-    if hover_control_panel:
-      emit_signal('on_open_control_panel', hover_cart)
-    else:
-      emit_signal('on_open_cart', hover_cart, held_item)
-      emit_signal('on_item_drop', held_item)
-      held_item = null
+  elif hover_cart_controller:
+    emit_signal('on_open_control_panel', hover_cart_controller)
+  elif hover_cart:
+    emit_signal('on_open_cart', hover_cart, held_item)
+    emit_signal('on_item_drop', held_item)
+    held_item = null
 #  elif held_item:
 #    held_item.queue_free()
 #    emit_signal('on_item_drop', held_item)
@@ -122,9 +120,7 @@ func _input(event):
     pick_up()
 
 func _on_hands_area_entered(area: Area2D) -> void:
-  hover_control_panel = area.name == 'ControlPanel'
   var p = area.get_parent()
-  var pp = p.get_parent()
   if p is Luggage:
     if hover_item:
       hover_item.set_hover(false)
@@ -133,21 +129,21 @@ func _on_hands_area_entered(area: Area2D) -> void:
     else:
       hover_item = p
       p.set_hover(true)
-  if pp is Cart:
-    hover_cart = pp
-
+  if p is Cart:
+    hover_cart = p
+  if p is CartController:
+    hover_cart_controller = p
 
 func _on_hands_area_exited(area: Area2D) -> void:
-  if area.name == 'ControlPanel':
-    hover_control_panel = false
   var p = area.get_parent()
-  var pp = p.get_parent()
 #  prints(' exit', p)
   if p == hover_item:
     hover_item.set_hover(false)
     hover_item = null
-  if pp == hover_cart:
+  if p == hover_cart:
     hover_cart = null
+  if p == hover_cart_controller:
+    hover_cart_controller = null
 
 func _on_AnimatedSprite_frame_changed() -> void:
   set_direction(direction)

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/cart.gd"
 }, {
+"base": "StaticBody2D",
+"class": "CartController",
+"language": "GDScript",
+"path": "res://scripts/cart_controller.gd"
+}, {
 "base": "Node2D",
 "class": "Flight",
 "language": "GDScript",
@@ -41,6 +46,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cart": "",
+"CartController": "",
 "Flight": "",
 "Luggage": "",
 "LuggageOld": "",

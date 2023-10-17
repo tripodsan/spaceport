@@ -1,95 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/tiles.png" type="Texture" id=1]
 [ext_resource path="res://scripts/cart.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33, 2.5 )
-
-[sub_resource type="Animation" id=3]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "blink"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 22, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 12 )
-
-[node name="cart0" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="control" type="StaticBody2D" parent="."]
-
-[node name="sprite" type="Sprite" parent="control"]
-position = Vector2( 28, -11 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 112, 80, 32 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="control"]
-position = Vector2( 32, -0.5 )
-shape = SubResource( 1 )
-
-[node name="control_lamp" type="Sprite" parent="control"]
-visible = false
-position = Vector2( 60, -19 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 80, 128, 16, 16 )
-
-[node name="blink" type="AnimationPlayer" parent="control/control_lamp"]
-anims/RESET = SubResource( 3 )
-anims/blink = SubResource( 4 )
-
-[node name="Area2D" type="Area2D" parent="control"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="control/Area2D"]
-position = Vector2( 21, -13 )
-shape = SubResource( 2 )
-
-[node name="ControlPanel" type="Area2D" parent="control"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="control/ControlPanel"]
-position = Vector2( 64, -11 )
-shape = SubResource( 5 )
-
-[node name="items" type="Node2D" parent="."]
-position = Vector2( 1, -10 )
-
-[node name="cart" type="Sprite" parent="."]
+[node name="cart" type="Sprite"]
 position = Vector2( 25, -23 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 48, 64, 48 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -21, 26 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 21, -13 )
+shape = SubResource( 1 )
+
+[node name="items" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2( -24, 13 )
