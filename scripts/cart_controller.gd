@@ -8,9 +8,11 @@ const GRID_SIZE = Vector2(8, 8)
 
 var full:bool = false
 
+var _blink:bool
+
 onready var _cart:Cart = $cart_holder/cart
 
-onready var _blink:AnimationPlayer = get_node('%blink')
+onready var _lamp:Sprite = get_node('%control_lamp')
 
 onready var cart_animation:AnimationPlayer = $cart_animation
 
@@ -30,11 +32,7 @@ func _on_cart_full_changed(v):
   set_full(v)
 
 func set_full(v):
-  if v:
-    _blink.play('blink')
-  else:
-    _blink.stop(true)
-    _blink.seek(0)
+  _blink = v
 
 func get_cart()->Cart:
   return _cart;
@@ -73,3 +71,6 @@ func move_from_hatch():
   yield(cart_animation, 'animation_finished')
   hatch.play('default', true)
   yield(hatch, 'animation_finished')
+
+func _process(delta: float):
+  _lamp.visible = _blink && Time.get_ticks_msec() % 1000 < 500

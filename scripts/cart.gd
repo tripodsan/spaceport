@@ -10,6 +10,8 @@ onready var items_node:Node2D = get_node('%items')
 
 signal cart_full_changed(is_full)
 
+var destination:String = '???'
+
 func remove_items()->Array: #->Array[Luggage]:
   var items = []
   for item in items_node.get_children():
@@ -18,13 +20,19 @@ func remove_items()->Array: #->Array[Luggage]:
   return items
 
 func set_full(v):
-  full = v
-  emit_signal('cart_full_changed', full)
+  if full != v:
+    full = v
+    emit_signal('cart_full_changed', full)
 
 func is_full()->bool:
   return full
 
+func can_add(item:Luggage)->bool:
+  return destination == '???' or item.destination == destination
+
 func add_item(item:Luggage):
+  assert(can_add(item))
+  destination = item.destination
   item.preview = false
   item.set_pickable(false)
   items_node.add_child(item)

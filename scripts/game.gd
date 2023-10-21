@@ -11,6 +11,7 @@ func _ready():
 
   $mate.show()
   $credits.hide()
+  $help.hide()
   $title.show()
 
 func _on_start_pressed() -> void:
@@ -32,5 +33,12 @@ func _on_exit_pressed() -> void:
 func _on_menu_pressed() -> void:
   yield($mate.fade(), 'completed')
   $credits.hide()
+  $help.hide()
   $title.show()
+  yield($mate.show(), 'completed')
+
+func _on_help_pressed() -> void:
+  yield($mate.fade(), 'completed')
+  $title.hide()
+  $help.show()
   yield($mate.show(), 'completed')

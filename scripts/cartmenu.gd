@@ -2,15 +2,21 @@ extends TileMap
 
 onready var world = get_parent()
 
-var last_time:int = 0
-
 var _cart:Cart
 
 var _item:Luggage
 
+var _can_place:bool
+
 var _heights = [0, 0, 0, 0, 0, 0];
 
 const GRID_SIZE = Vector2(16, 16)
+
+const WARN_FULL = 'CART FULL'
+
+const WARN_TOO_BIG = 'ITEM TOO BIG'
+
+const WARN_WRONG_DEST = 'WRONG DEST'
 
 signal on_cartmenu_close(item)
 
@@ -21,28 +27,48 @@ func _ready() -> void:
 func open(cart:Cart, item:Luggage):
   visible = true
   set_process_input(true)
+  $dest.text = 'DEST: %s' % cart.destination
   $warning.visible = false
   _cart = cart
   _item = item
+  _can_place = false
+  if item:
+    item.visible = false
   for item in cart.remove_items():
     item.preview = true
     $items.add_child(item)
     place_item(item)
 
   update_heights()
+  cart.set_full(check_full())
+
+  if cart.is_full():
+    show_warning(WARN_FULL)
+    return
+
   if item:
+    if !cart.can_add(item):
+      cart.set_full(true)
+      show_warning(WARN_WRONG_DEST)
+      return
     item.preview = true
     item.hover = false
     item.get_parent().remove_child(item)
     $items.add_child(item)
     var pos = find_fit(item.dimension, -1, 1)
     if pos.x < 0:
-      _cart.set_full(true)
-      $warning.visible = true
+      cart.set_full(true)
+      item.visible = false
+      show_warning(WARN_TOO_BIG)
       return
     item.cart_position = pos
-    _cart.set_full(false)
+    item.visible = true
+    _can_place = true
     place_item(item)
+
+func show_warning(text:String):
+  $warning.text = text
+  $warning.visible = true
 
 func update_heights():
   _heights = [0, 0, 0, 0, 0, 0]
@@ -56,10 +82,11 @@ func close():
   for item in $items.get_children():
     $items.remove_child(item)
     _cart.add_item(item)
-  if !_cart.full:
+  if _can_place:
     _item = null
-  if check_full():
-    _cart.set_full(true)
+  if _item:
+    _item.visible = true
+  _cart.set_full(check_full())
   yield(get_tree(), "idle_frame")
   emit_signal('on_cartmenu_close', _item)
 
@@ -106,11 +133,3 @@ func _input(event: InputEvent) -> void:
   if event.is_action_pressed('walk_right'):
     move(1)
 
-# warning-ignore:unused_argument
-func _process(delta: float) -> void:
-  if !visible:
-    return
-  var time = Globals.get_wall_time()
-  if time != last_time:
-    last_time = time
-    $time.text = Time.get_time_string_from_unix_time(time)
