@@ -10,11 +10,18 @@ var luggage_set_scenes:Array = [
   preload("res://sprites/luggage_set0.tscn"),
   preload("res://sprites/luggage_set1.tscn"),
   preload("res://sprites/luggage_set2.tscn"),
-  preload("res://sprites/luggage_set3.tscn")
+  preload("res://sprites/luggage_set3.tscn"),
+  preload("res://sprites/luggage_set4.tscn")
 ]
 
 ## time until departue
 var time:int
+
+## number of total lugages
+var num_lugages:int
+
+## number of optmimal carts
+var carts_par:int = 0
 
 ## destination
 export var destination:String
@@ -27,9 +34,14 @@ func add_luggage(set_nr:int):
   for lug in set.get_children():
     set.remove_child(lug)
     luggage.add_child(lug)
+  num_lugages = luggage.get_child_count()
+  carts_par += 1
 
 func get_luggage_count()->int:
   return luggage.get_child_count()
+
+func get_cart_count()->int:
+  return carts.get_child_count()
 
 func add_cart(cart:Cart):
   cart.visible = false
@@ -43,9 +55,12 @@ func remove_random_luggage()->Luggage:
   luggage.remove_child(lug)
   return lug
 
+func get_time_remaining()->int:
+  return time - Globals.get_time()
+
 func _to_string() -> String:
   var name = Globals.destinations[destination]
-  var remain = time - Globals.get_time()
+  var remain = get_time_remaining()
   var minutes = remain / 60
   var seconds = remain % 60
   return '%s in %d:%02d at Gate %s' % [name, minutes, seconds, dock]

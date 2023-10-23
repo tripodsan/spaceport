@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/suitecase_box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/suitecase_wide.tscn" type="PackedScene" id=4]
+
+[node name="set4" type="Node2D"]
+
+[node name="1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 40 )
+
+[node name="0" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, 40 )
+
+[node name="2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 88, 40 )
+
+[node name="3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104, 40 )

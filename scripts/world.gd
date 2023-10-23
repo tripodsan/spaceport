@@ -8,6 +8,8 @@ onready var ticker:Ticker = get_node('%ticker')
 
 onready var flights:Node2D = get_node('%flights')
 
+var score:int = 0
+
 func _ready() -> void:
   randomize()
   assert(!player.connect('on_item_drop', self, '_on_player_item_drop'))
@@ -15,6 +17,7 @@ func _ready() -> void:
   assert(!player.connect('on_open_control_panel', self, '_on_player_open_control_panel'))
   assert(!player.connect('on_item_pick', self, '_on_player_item_pick'))
   assert(!$cartmenu.connect('on_cartmenu_close', self, '_on_cartmenu_close'))
+  assert(!$depart.connect('on_depart_close', self, '_on_depart_close'))
   assert(!$dispatch.connect('on_control_panel_close', self, '_on_control_panel_close'))
   assert(!$dispatch.connect('on_cart_dispatch', self, '_on_cart_dispatch'))
 
@@ -59,16 +62,32 @@ func stop():
 
 func _on_cart_dispatch(cart:Cart, flight:Flight):
   flight.add_cart(cart)
-  # TODO: check if flight is complete
+  if flight.get_luggage_count() > 0:
+    return
+  ticker.pause(true)
+  player.pause(true)
+  $belt.paused = true
+  $bg_music.stop()
+  flights.remove_child(flight)
+  ticker.remove_line(flight)
+  score = $depart.open(flight.num_lugages, flight.get_cart_count(), flight.carts_par, flight.get_time_remaining(), score)
+
+func _on_depart_close():
+  create_flight();
+  $belt.start()
+  $bg_music.play()
+  ticker.pause(false)
+  player.pause(false)
 
 func create_flight():
+  print_stack()
   var f:Flight = flight_scene.instance()
   flights.add_child(f)
   f.destination = 'MON'
   f.dock = 'A'
   f.time = Globals.get_time() + 3*60
-  f.add_luggage(0)
-  f.add_luggage(1)
+  f.add_luggage(4)
+#  f.add_luggage(1)
   ticker.add_line(f)
 
 func get_next_luggage()->Luggage:

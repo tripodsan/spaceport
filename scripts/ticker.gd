@@ -23,6 +23,13 @@ func _ready() -> void:
 func add_line(line):
   lines.push_back(line)
 
+func remove_line(line):
+  var i = lines.find(line)
+  if i >= 0:
+    lines.remove(i)
+    idx = 0
+    update_text()
+
 func update_text():
   text = str(lines[idx])
 
