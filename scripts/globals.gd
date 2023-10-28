@@ -13,11 +13,16 @@ var paused:bool = true
 # warning-ignore:unused_signal
 signal game_pause_changed(paused)
 
+signal game_over(flight)
+
+signal reset()
+
 var destinations:Dictionary = {
   'MON': 'Moon',
   'EUR': 'Europa',
   'TRA': 'Earth',
   'KEP': 'Astroid X32',
+  'MRS': 'Mars',
 }
 
 func get_time()->int:

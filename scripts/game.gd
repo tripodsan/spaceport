@@ -1,14 +1,10 @@
 extends Node2D
 
-var debug = false
-
 func _ready():
-  if debug:
-    $mate.visible = false
-    $world.show()
-    $world.start()
-    return
+  assert(!Globals.connect('reset', self, '_on_reset'))
+  _on_reset()
 
+func _on_reset():
   $mate.show()
   $credits.hide()
   $help.hide()
@@ -19,7 +15,7 @@ func _on_start_pressed() -> void:
   $world.show()
   $title.hide()
   yield($mate.show(), 'completed')
-  $world.start()
+  $world.start_game()
 
 func _on_credits_pressed() -> void:
   yield($mate.fade(), 'completed')

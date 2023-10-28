@@ -23,11 +23,21 @@ var num_lugages:int
 ## number of optmimal carts
 var carts_par:int = 0
 
+var on_time:bool = true
+
 ## destination
 export var destination:String
 
 ## departure dock
 export var dock:String
+
+func init_from_plan(plan:Dictionary):
+  # 'destination': 'MON', 'dock': 'A', 'time': 3*60, 'lug': [1]
+  destination = plan.destination
+  dock = plan.dock
+  time = Globals.get_time() + plan.time
+  for s in plan.lug:
+    add_luggage(s)
 
 func add_luggage(set_nr:int):
   var set:Node2D = luggage_set_scenes[set_nr].instance()
@@ -64,3 +74,8 @@ func _to_string() -> String:
   var minutes = remain / 60
   var seconds = remain % 60
   return '%s in %d:%02d at Gate %s' % [name, minutes, seconds, dock]
+
+func _process(delta: float) -> void:
+  if on_time && get_time_remaining() < 0:
+    on_time = false
+    Globals.emit_signal('game_over', self)

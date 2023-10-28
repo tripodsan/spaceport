@@ -8,7 +8,9 @@ onready var ticker:Ticker = get_node('%ticker')
 
 onready var flights:Node2D = get_node('%flights')
 
-var score:int = 0
+var score:int = -1
+
+var flight_nr:int = -1
 
 func _ready() -> void:
   randomize()
@@ -18,8 +20,18 @@ func _ready() -> void:
   assert(!player.connect('on_item_pick', self, '_on_player_item_pick'))
   assert(!$cartmenu.connect('on_cartmenu_close', self, '_on_cartmenu_close'))
   assert(!$depart.connect('on_depart_close', self, '_on_depart_close'))
+  assert(!$game_over.connect('on_game_over_close', self, '_on_game_over_close'))
   assert(!$dispatch.connect('on_control_panel_close', self, '_on_control_panel_close'))
   assert(!$dispatch.connect('on_cart_dispatch', self, '_on_cart_dispatch'))
+  assert(!Globals.connect('game_over', self, '_on_game_over'))
+
+func _on_game_over(flight:Flight):
+  stop_game()
+  player.visible = false
+  $game_over.open(flight, score)
+
+func _on_game_over_close():
+  Globals.emit_signal('reset')
 
 func _on_player_item_pick(item):
   $preview.show_item(item)
@@ -45,15 +57,18 @@ func _on_cartmenu_close(item):
 func _on_control_panel_close():
   player.pause(false)
 
-func start():
+func start_game():
+  flight_nr = 0
+  score = 0
   Globals.start()
   create_flight()
   $bg_music.play()
   $belt.start()
+  player.visible = true
   ticker.pause(false)
   player.pause(false)
 
-func stop():
+func stop_game():
   $bg_music.stop()
   $belt.paused = true
   ticker.pause(true)
@@ -79,15 +94,15 @@ func _on_depart_close():
   ticker.pause(false)
   player.pause(false)
 
+var flight_plan = [
+  { destination = 'MON', dock = 'A', time = 3*60, lug = [1] },
+  { destination = 'EUR', dock = 'B', time = 3*60, lug = [2] },
+ ]
+
 func create_flight():
-  print_stack()
   var f:Flight = flight_scene.instance()
   flights.add_child(f)
-  f.destination = 'MON'
-  f.dock = 'A'
-  f.time = Globals.get_time() + 3*60
-  f.add_luggage(4)
-#  f.add_luggage(1)
+  f.init_from_plan(flight_plan[flight_nr])
   ticker.add_line(f)
 
 func get_next_luggage()->Luggage:
