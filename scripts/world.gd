@@ -112,18 +112,18 @@ var flight_plan = [
  ]
 
 func get_concurrency():
-  if flight_nr < 4:
+  if flight_nr < 6:
     return 2
-  elif flight_nr < 10:
+  elif flight_nr < 20:
     return 3
   else:
     return 4
 
 func get_flight_time():
-  if flight_nr < 4:
-    return 3*60
-  elif flight_nr < 10:
-    return 2*60
+  if flight_nr < 10:
+    return 180
+  elif flight_nr < 20:
+    return 150
   else:
     return 100
 
