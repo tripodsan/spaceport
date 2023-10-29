@@ -31,6 +31,8 @@ signal on_item_pick(item)
 
 signal on_item_drop(item)
 
+signal on_item_hover(item)
+
 signal on_open_cart(cart, item)
 
 signal on_open_control_panel(cart_controller)
@@ -127,8 +129,11 @@ func _on_hands_area_entered(area: Area2D) -> void:
     if held_item:
       hover_item = null
     else:
+      if hover_item != p:
+        emit_signal('on_item_hover', p)
       hover_item = p
       p.set_hover(true)
+
   if p is Cart:
     hover_cart = p
   if p is CartController:
@@ -140,6 +145,7 @@ func _on_hands_area_exited(area: Area2D) -> void:
   if p == hover_item:
     hover_item.set_hover(false)
     hover_item = null
+    emit_signal('on_item_hover', hover_item)
   if p == hover_cart:
     hover_cart = null
   if p == hover_cart_controller:

@@ -20,10 +20,13 @@ signal reset()
 var destinations:Dictionary = {
   'MON': 'Moon',
   'EUR': 'Europa',
-  'TRA': 'Earth',
-  'KEP': 'Astroid X32',
+  'TER': 'Earth',
+  'KEP': 'Keppler',
   'MRS': 'Mars',
+  'VES': 'Venus',
 }
+
+var docks = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 func get_time()->int:
   # warning-ignore:integer_division

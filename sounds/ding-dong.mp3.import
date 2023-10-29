@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ding-dong.mp3-cd4225b4d69ba309ed5a2a1bf8239c65.mp3str"
+
+[deps]
+
+source_file="res://sounds/ding-dong.mp3"
+dest_files=[ "res://.import/ding-dong.mp3-cd4225b4d69ba309ed5a2a1bf8239c65.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

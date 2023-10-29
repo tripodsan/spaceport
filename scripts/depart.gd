@@ -35,9 +35,12 @@ func open(items, carts, carts_par, bonus, score)->int:
   visible = true
   set_process_input(true)
   _items_to = items
+  _items = 0
   _carts_to = carts
   _carts_par = carts_par
+  _carts = 0
   _bonus_to = bonus
+  _bonus = 0
   _total = 0
   _total_to = items*ITEM_MULT + (_carts_par - carts) * CARTS_MULT + bonus
   _score = score
@@ -46,6 +49,7 @@ func open(items, carts, carts_par, bonus, score)->int:
   text = ['\n', '\n', '\n', '']
   _update_text()
   _update_score()
+  $sfx_score.play()
   return score + _total_to
 
 func _update_text():

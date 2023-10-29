@@ -4,7 +4,7 @@ class_name Luggage
 
 export var dimension:Vector2
 
-export(String) var destination = 'MON'
+export(String) var destination = '???'
 
 var size:Vector2 setget , get_size
 

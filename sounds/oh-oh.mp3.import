@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/oh-oh.mp3-c8b57000f138dafa75cfdea7e9b28e66.mp3str"
+
+[deps]
+
+source_file="res://sounds/oh-oh.mp3"
+dest_files=[ "res://.import/oh-oh.mp3-c8b57000f138dafa75cfdea7e9b28e66.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

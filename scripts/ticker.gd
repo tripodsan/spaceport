@@ -14,6 +14,8 @@ var paused:bool = true
 
 var updating:bool = false
 
+var blink:int = -1
+
 onready var y_start_pos = rect_position.y
 
 func _ready() -> void:
@@ -21,6 +23,8 @@ func _ready() -> void:
   update_text()
 
 func add_line(line):
+  blink = lines.size()
+  time = DISPLAY_TIME
   lines.push_back(line)
 
 func remove_line(line):
@@ -33,19 +37,30 @@ func remove_line(line):
 func update_text():
   text = str(lines[idx])
 
+func blink_visibilty(value:int):
+  visible = value % 2 == 0
+
 func show_next():
   updating = true
-  $Tween.interpolate_property(self, "rect_position:y",
-        y_start_pos, y_start_pos - 10, 1,
-        Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-  $Tween.start()
-  yield($Tween, "tween_all_completed")
-  idx = (idx + 1) % lines.size()
-  $Tween.interpolate_property(self, "rect_position:y",
-        y_start_pos - 10, y_start_pos, 1,
-        Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-  $Tween.start()
-  yield($Tween, "tween_all_completed")
+  if blink > 0:
+    idx = blink
+    blink = -1
+    assert($Tween.interpolate_method(self, 'blink_visibilty', 0, 6, 1, Tween.TRANS_LINEAR))
+    $Tween.start()
+    yield($Tween, "tween_all_completed")
+    visible = true
+  else:
+    $Tween.interpolate_property(self, "rect_position:y",
+          y_start_pos, y_start_pos - 10, 1,
+          Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+    $Tween.start()
+    yield($Tween, "tween_all_completed")
+    idx = (idx + 1) % lines.size()
+    $Tween.interpolate_property(self, "rect_position:y",
+          y_start_pos - 10, y_start_pos, 1,
+          Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+    $Tween.start()
+    yield($Tween, "tween_all_completed")
   updating = false
 
 func pause(value):
@@ -58,7 +73,7 @@ func _process(delta):
   if paused: return
   if !updating:
     time += delta
-    if time > DISPLAY_TIME:
+    if time >= DISPLAY_TIME:
       time -= DISPLAY_TIME
       show_next()
   update_text()

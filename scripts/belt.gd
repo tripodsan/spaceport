@@ -23,10 +23,11 @@ func _on_surface_frame_changed() -> void:
 
 func start():
   paused = false
-  if !next:
-    prepare_luggage()
+  prepare_luggage()
 
 func prepare_luggage():
+  if next:
+    return
   next = world.get_next_luggage()
   if next:
     $luggage.add_child(next)
@@ -95,4 +96,5 @@ func move_luggage():
     set_speed(speed)
   if next.position.y == 132:
     next.set_pickable(true)
+    next = null
     prepare_luggage()

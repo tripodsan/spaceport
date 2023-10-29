@@ -20,6 +20,9 @@ var time:int
 ## number of total lugages
 var num_lugages:int
 
+## number of loaded luggage
+var num_loaded:int = 0
+
 ## number of optmimal carts
 var carts_par:int = 0
 
@@ -44,6 +47,7 @@ func add_luggage(set_nr:int):
   for lug in set.get_children():
     set.remove_child(lug)
     luggage.add_child(lug)
+    lug.destination = destination
   num_lugages = luggage.get_child_count()
   carts_par += 1
 
@@ -56,6 +60,7 @@ func get_cart_count()->int:
 func add_cart(cart:Cart):
   cart.visible = false
   carts.add_child(cart)
+  num_loaded += cart.num_items
 
 func remove_random_luggage()->Luggage:
   if luggage.get_child_count() == 0:
