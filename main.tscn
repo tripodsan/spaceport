@@ -1561,9 +1561,11 @@ tile_data = PoolIntArray( 0, 80, 0, 1, 81, 0, 2, 81, 0, 3, 81, 0, 4, 81, 0, 5, 8
 [node name="YSort" type="YSort" parent="world"]
 
 [node name="cart0" parent="world/YSort" instance=ExtResource( 18 )]
+unique_name_in_owner = true
 position = Vector2( 3, 89 )
 
 [node name="cart1" parent="world/YSort" instance=ExtResource( 18 )]
+unique_name_in_owner = true
 position = Vector2( 90, 89 )
 
 [node name="player" type="KinematicBody2D" parent="world/YSort"]

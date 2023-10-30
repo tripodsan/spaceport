@@ -14,7 +14,7 @@ func open(flight:Flight, total_score):
   visible = true
   set_process_input(true)
   score.text = 'SCORE: %d' % total_score
-  points.text = 'FLIGHT TO %s\nLEFT WITH %d\nMISSING ITEMS.' % [Globals.destinations[flight.destination], flight.num_lugages - flight.num_loaded]
+  points.text = 'FLIGHT TO %s\nLEFT WITH %d\nMISSING ITEMS.' % [Globals.destinations[flight.destination], flight.get_num_unloaded()]
 
 func close():
   visible = false

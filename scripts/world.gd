@@ -8,6 +8,8 @@ onready var ticker:Ticker = get_node('%ticker')
 
 onready var flights:Node2D = get_node('%flights')
 
+onready var carts = [ get_node('%cart0'), get_node('%cart1')]
+
 var score:int = -1
 
 var flight_nr:int = -1
@@ -59,6 +61,8 @@ func _on_cartmenu_close(item):
   player.pause(false)
   if item:
     player.take_item(item)
+  else:
+    check_carts_ready()
 
 func _on_control_panel_close():
   player.pause(false)
@@ -88,7 +92,7 @@ func stop_game():
 func _on_cart_dispatch(cart:Cart, flight:Flight):
   flight.add_cart(cart)
   print_flights()
-  if flight.num_loaded < flight.num_lugages:
+  if flight.get_num_unloaded() > 0:
     return
   ticker.pause(true)
   player.pause(true)
@@ -104,6 +108,22 @@ func _on_depart_close():
   $bg_music.play()
   ticker.pause(false)
   player.pause(false)
+
+## checks if the flights of the current carts are ready and blick the console
+func check_carts_ready():
+  var sums:Dictionary = {}
+  for ctrl in carts:
+    var c:Cart = ctrl.get_cart()
+    var dest = c.destination
+    var f:Flight = get_flight_by_destination(dest)
+    if sums.has(dest):
+      sums[dest] -= c.num_items
+    elif f:
+      sums[dest] = f.get_num_unloaded() - c.num_items
+  for ctrl in carts:
+    var dest = ctrl.get_cart().destination
+    if sums.get(dest) == 0:
+      ctrl.set_full(true)
 
 var flight_plan = [
   { destination = 'MON', dock = 'A', time = 3*60, lug = [0] },

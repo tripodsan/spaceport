@@ -51,6 +51,9 @@ func add_luggage(set_nr:int):
   num_lugages = luggage.get_child_count()
   carts_par += 1
 
+func get_num_unloaded()->int:
+  return num_lugages - num_loaded
+
 func get_luggage_count()->int:
   return luggage.get_child_count()
 
